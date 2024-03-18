@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Homework 1 Data Abstraction | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Homework 1 Data Abstraction" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Homework for the first teamteach" />
+<meta property="og:description" content="Homework for the first teamteach" />
+<link rel="canonical" href="http://localhost:4200/student/2022/10/09/Homework1DataAbstract_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2022/10/09/Homework1DataAbstract_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-09T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Homework 1 Data Abstraction" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-09T00:00:00-07:00","datePublished":"2022-10-09T00:00:00-07:00","description":"Homework for the first teamteach","headline":"Homework 1 Data Abstraction","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2022/10/09/Homework1DataAbstract_IPYNB_2_.html"},"url":"http://localhost:4200/student/2022/10/09/Homework1DataAbstract_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Homework 1 Data Abstraction
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-09T00:00:00-07:00" itemprop="datePublished">
+        Oct 9, 2022
+      </time>
+    </p><h2>Description</h2><p class="page-description">Homework for the first teamteach</p><ul><li><a href="#notes">Notes</a></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Data Type Practice
+Question 1: Integer Operation
+Declare two integer variables, num1Int and num2Int, and assign them values of your choice.
+Calculate the sum of num1Int and num2Int
+Print the sum
+Question 2: Float Operation
+Declare two float variables, float1 and float2, and assign them values of your choice.
+Calculate the quotient of ‘float1’ and ‘float2’
+Print the quotient
+Question 3: Format Manipulation
+Write a message that equals a sentence with two placeholder variables
+Write two strings with two placeholder variables to insert into the message
+Print that message</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Question 1
+</span><span class="k">def</span> <span class="nf">sumofint</span><span class="p">(</span><span class="n">num1Int</span><span class="p">,</span><span class="n">num2Int</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num1Int</span><span class="o">+</span><span class="n">num2Int</span>
+<span class="n">num1int</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">num2int</span><span class="o">=</span><span class="mi">2</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"The sum of the float "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1int</span><span class="p">)</span><span class="o">+</span><span class="s">" and"</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">num2int</span><span class="p">)</span><span class="o">+</span><span class="s">" is "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sumofint</span><span class="p">(</span><span class="n">num1int</span><span class="p">,</span><span class="n">num2int</span><span class="p">)))</span>
+
+<span class="c1">#Question 2
+</span><span class="k">def</span> <span class="nf">sumoffloat</span><span class="p">(</span><span class="n">num1float</span><span class="p">,</span><span class="n">num2float</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">num1float</span><span class="o">+</span><span class="n">num2float</span>
+<span class="n">num1float</span><span class="o">=</span><span class="mf">3.1</span>
+<span class="n">num2float</span><span class="o">=</span><span class="mf">2.5</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"The sum of the float "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num1float</span><span class="p">)</span><span class="o">+</span><span class="s">" and "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num2float</span><span class="p">)</span><span class="o">+</span><span class="s">" is "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sumoffloat</span><span class="p">(</span><span class="n">num1float</span><span class="p">,</span><span class="n">num2float</span><span class="p">)))</span>
+
+<span class="c1">#Question 3
+# string1="Dogs"
+</span><span class="n">string1</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">"What is one thing you like?"</span><span class="p">)</span>
+<span class="c1"># string2="Cats"
+</span><span class="n">string2</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">"What is another thing you like?"</span><span class="p">)</span>
+<span class="n">message</span><span class="o">=</span><span class="s">"I like "</span><span class="o">+</span><span class="n">string1</span><span class="o">+</span><span class="s">" and "</span><span class="o">+</span><span class="n">string2</span><span class="o">+</span><span class="s">"."</span>
+<span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The sum of the float 3 and2 is 5
+The sum of the float 3.1 and2.5 is 5.6
+I like cats  and dogs.
+</code></pre></div></div>
+
+<h1 id="notes">Notes</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- In this teamteach I learned a lot on the different types of Variables
+- Types
+    - boolean
+    - String
+    - Integer
+    - Float
+-Concatenation
+    - Joining Strings
+- You can convert data types
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/student/2022/10/09/Homework1DataAbstract_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

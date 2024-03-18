@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>5.4 Crowd-sourcing | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="5.4 Crowd-sourcing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Crowd-sourcing lesson" />
+<meta property="og:description" content="Crowd-sourcing lesson" />
+<link rel="canonical" href="http://localhost:4200/student/2023/12/14/Class_6_Crowdsourcing_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/12/14/Class_6_Crowdsourcing_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-14T00:00:00-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="5.4 Crowd-sourcing" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-14T00:00:00-08:00","datePublished":"2023-12-14T00:00:00-08:00","description":"Crowd-sourcing lesson","headline":"5.4 Crowd-sourcing","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/12/14/Class_6_Crowdsourcing_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/12/14/Class_6_Crowdsourcing_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">5.4 Crowd-sourcing
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      27 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-12-14T00:00:00-08:00" itemprop="datePublished">
+        Dec 14, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Crowd-sourcing lesson</p><ul><li><a href="#big-idea-54-crowd-sourcing">Big Idea 5.4: Crowd-sourcing</a><ul><li><a href="#what-is-crowd-sourcing">What is Crowd-sourcing?</a></li><li><a href="#types-of-crowd-sourcing">Types of Crowd-sourcing</a><ul><li><a href="#popcorn-hack">Popcorn Hack</a></li><li><a href="#data-crowdsourcing">Data Crowdsourcing:</a></li><li><a href="#open-source-development">Open Source Development:</a></li></ul></li><li><a href="#public-data-sets">Public Data Sets:</a></li><li><a href="#distributed-computing">Distributed Computing:</a></li><li><a href="#innovations">Innovations:</a><ul><li><a href="#popcorn-hacks">Popcorn Hacks</a></li><li><a href="#homework">Homework:</a></li></ul></li></ul></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="big-idea-54-crowd-sourcing">Big Idea 5.4: Crowd-sourcing</h1>
+
+<p><img src="https://files.catbox.moe/u9c5bk.jpeg" alt="Crowdsourcing" /></p>
+
+<h2 id="what-is-crowd-sourcing">What is Crowd-sourcing?</h2>
+
+<p>Crowd-sourcing is a way of getting help, ideas, or contributions from a large group of people, often through the internet. Instead of relying on a few experts or individuals, crowd-sourcing taps into the collective knowledge, skills, and efforts of a diverse crowd to solve problems, gather information, or create content. This is one way of preventing Computer Bias.</p>
+
+<p><img src="https://files.catbox.moe/9efbro.webp" alt="Crowdsourcing Types" /></p>
+
+<h2 id="types-of-crowd-sourcing">Types of Crowd-sourcing</h2>
+
+<p>There are several different types of crowd-sourcing:</p>
+<ul>
+  <li>Idea Crowdsourcing: Idea crowdsourcing is a collaborative approach to generating creative solutions or innovations by soliciting ideas from a large group of individuals. ex. Companies might host idea competitions where employees or the public submit ideas for new products or process improvements. Online suggestion boxes allow users to contribute ideas and feedback for website improvements or feature enhancements.</li>
+  <li>Data Crowdsourcing: Data crowdsourcing involves harnessing the power of a crowd to collect, process, or validate large sets of data. ex. Image labeling projects, where contributors tag and describe images to train machine learning models. Crowdsourced mapping platforms like OpenStreetMap, where volunteers contribute to creating and updating maps.</li>
+  <li>Microtask Crowdsourcing: Microtask crowdsourcing breaks down complex tasks into small, manageable units and distributes them among contributors to achieve rapid results. ex. Amazon Mechanical Turk, where workers perform small tasks like data entry, image recognition, or sentiment analysis for a fee.Captcha solving, where users help decipher distorted text to prove they are human, indirectly contributing to digitizing books.</li>
+  <li>Knowledge Crowdsourcing: Knowledge crowdsourcing involves tapping into the collective intelligence of a group to answer questions, solve problems, or provide expertise. ex. Online forums like Stack Exchange or Reddit, where users ask questions and receive answers from a community of experts.Collaborative wikis like Wikipedia, where contributors collectively create and edit content on a wide range of topics.</li>
+  <li>Open Source Development: Open source development refers to the collaborative creation and improvement of software, with the source code being made freely available to the public. ex. GitHub is a platform where developers contribute to open-source projects by submitting code, reporting issues, and collaborating with others. The Linux operating system is a notable example of a successful open-source project with contributions from a global community.
+We will be mainly focusing on Data Crowd-sourcing and Open Source Development</li>
+</ul>
+
+<h3 id="popcorn-hack">Popcorn Hack</h3>
+
+<p>Can you think of other uses for the different types of crowd-sourcing?</p>
+
+<h3 id="data-crowdsourcing">Data Crowdsourcing:</h3>
+
+<p>Data crowdsourcing is a collaborative approach that outsources the collection, processing, or validation of data to a large and diverse group of contributors. This method is particularly advantageous when tasks require substantial data processing within a short timeframe.</p>
+
+<ul>
+  <li>Image Labeling Projects: Contributors annotate images with relevant labels, aiding in the training and improvement of machine learning models.</li>
+  <li>Mapping and Geospatial Data: Projects like OpenStreetMap leverage global contributors to create and update detailed maps.</li>
+  <li>Sentiment Analysis Tasks: Contributors label text data with positive, negative, or neutral sentiments, providing valuable insights for sentiment analysis models.</li>
+  <li>Data Verification: Tasks involve contributors checking and correcting information, ensuring the accuracy and reliability of datasets.</li>
+</ul>
+
+<p>The scale, speed, and cost-effectiveness of data crowdsourcing make it a powerful tool, with the diversity of contributors enhancing the richness of the collected data. However, challenges include maintaining quality control, designing clear tasks, and addressing privacy concerns when handling sensitive information.</p>
+
+<h3 id="open-source-development">Open Source Development:</h3>
+
+<p>Open source development is a collaborative software development approach where the source code is made freely available to the public, allowing contributors worldwide to modify, enhance, and distribute the software. GitHub serves as a prominent platform for hosting and collaborating on open-source projects, enabling developers to contribute through code submissions, issue reporting, and discussions.</p>
+
+<p>Examples of Successful Open-Source Projects:</p>
+<ul>
+  <li>Linux Operating System, Developed and maintained by a global community of contributors.</li>
+  <li>Apache HTTP Server: A foundational web server on the internet.</li>
+  <li>WordPress:A widely used content management system.</li>
+</ul>
+
+<p>The benefits of open source development include fostering community collaboration, rapid innovation through contributions, and promoting transparency as users can inspect, modify, and distribute the source code. Challenges include coordinating contributions from a diverse community, addressing maintainer burnout, and ensuring compliance with project licensing terms. Despite these challenges, open source development remains a powerful model for creating and maintaining software that is both innovative and openly accessible.</p>
+
+<p><img src="https://files.catbox.moe/kllfkj.jpeg" alt="crowdsourcing1" /></p>
+
+<h2 id="public-data-sets">Public Data Sets:</h2>
+
+<p>Public data sets are raw data that governments, academic institutions, and other organizations make freely available to the public. By providing open access to massive stores of data, public data sets power innovation through crowdsourcing. Essentially, they present an opportunity for crowd wisdom to uncover insights and solutions that large organizations cannot achieve alone.</p>
+
+<p>For example, Google Public Datasets offers the public access to high-value data sets on Google Cloud. This includes data covering genetics, weather patterns, demographics, economics, and more. By enabling any developer or analyst to access and experiment with the same rich data sources, Google crowdsources new discoveries across industries. Public competitions on platforms like Kaggle further demonstrate the model of giving crowds access to key data to drive breakthroughs. Kaggle hosts public competitions where data scientists compete to uncover the best predictive models and data visualizations for real-world problems posed by organizations. They also offer courses in visualizations, tensor flow AI (google’s platform for AI), machine learning, and more. By providing universal access to raw data, public datasets create the essential information for crowdsourced innovation.</p>
+
+<h2 id="distributed-computing">Distributed Computing:</h2>
+
+<p>Distributed computing platforms allow the public to donate their spare computing power to advance scientific research through crowdsourcing. An example is Folding@Home, created by Stanford University, which focuses on simulating protein folding to better understand diseases like cancer. The project sends out small computational protein folding simulations to volunteers’ personal devices. Results get sent back to contribute toward a massive aggregated analysis. At its peak, Folding@Home even utilized PlayStation 3 consoles toward this goal. A similar initiative is BOINC, coordinated by UC Berkeley, which crowdsources simulations for projects ranging from math to astrophysics. For example, BOINC’s Minecraft@Home sends out Minecraft world seeds to volunteers, who develop simulated versions of those worlds on their computers to send back data. While more of an experimental endeavor, Minecraft@Home demonstrates how crowdsourced computing can be leveraged creatively. By using collective resources, these platforms enable complex problems to be tackled that would not be feasible by any single system.</p>
+
+<h2 id="innovations">Innovations:</h2>
+
+<p>Crowdsourcing, with its power to gather different perspectives and resources, has fueled innovative new products and services. For example, Spotify taps into collective intelligence to improve music recommendations through user-curated collaborative playlists. By allowing groups to jointly create playlists, such as at a party, Spotify crowdsources data on music preferences. It analyzes patterns in what audiences stream and like to share new song suggestions personalized to each listener’s taste. Spotify also crowdsources descriptive metadata about songs through user-submitted information that undergoes a consensus-based review. Crowdfunding platforms like Kickstarter utilize the power of crowdsourcing to turn creative ideas into reality. By allowing entrepreneurs to pitch ideas to an enormous audience, promising innovations can get democratically funded by many small supporters rather than relying on a few large investors. This facilitates inventors and creators accessing the capital they need to initiate projects that may otherwise never materialize without public support. In short, crowdsourcing mechanisms enable innovations like algorithm-personalized music libraries and creator-owned projects that can uniquely serve user needs</p>
+
+<p><img src="https://files.catbox.moe/qiz6jr.jpeg" alt="crowdsourcing2" /></p>
+
+<h3 id="popcorn-hacks">Popcorn Hacks</h3>
+
+<p>Can you think of any drawbacks of crowdsourcing?</p>
+
+<h3 id="homework">Homework:</h3>
+
+<p>Please answer in complete sentences and explain in detail.</p>
+
+<ol>
+  <li>Explain the role of data crowdsourcing in machine learning projects. Provide an example of an application where image labeling by a crowd contributes to the improvement of machine learning models.</li>
+</ol>
+
+<p>Crowdsourcing is used in Machine learnign project to collect data and use it to train a model, which can be usd for future applications. For example, ChatGPT uses crowdsourcing of numerous people(in the millions probaly) collecting all the data from sites to train its response to a single user.</p>
+
+<ol>
+  <li>Compare and contrast the benefits and challenges of data crowdsourcing with regard to tasks like sentiment analysis and data verification. How does the diversity of contributors enhance the overall quality of the collected data?</li>
+</ol>
+
+<p>The benefits the project as this will allow the model to be trained accuratley and not give false reports or predicitions. The diversity of contributors will allow thre qulaity of the data to increase as it will be used in a wider scenario and directed toward a wider range of people.  The challenges of this includes being able to verify the data and obtain a wide range of data as that is defintely not an easy task.</p>
+
+<ol>
+  <li>Choose an open-source project mentioned in the examples, such as the Linux operating system or WordPress. Discuss the significance of global collaboration in the development of open-source software. Highlight one specific advantage and one challenge faced by open-source projects.</li>
+</ol>
+
+<p>For Linux, there are many open-source packages (software) that can be installed and these packages are hard to create with a limited number of pepeople so with a wide # of contributors this allowed more effecient and faster creating of the software and this will allow the projects and packages to be more updated and avdanced but can be limited as some people may slow down the project.</p>
+
+<ol>
+  <li>In microtask crowdsourcing, tasks are broken down into small units for contributors to complete. Explain how platforms like Amazon Mechanical Turk utilize microtask crowdsourcing. Discuss one advantage and one challenge associated with the microtask approach.</li>
+</ol>
+
+<p>Amazon Mechanical Turk utilizes microtask crowdsourcing by dividing tasks into smaller units for a distributed workforce to complete. This approach is advantageous for scalability across a variety of tasks. However, ensuring quality control becomes a challenge due to the decentralized nature of the crowd, which may result in variations in accuracy and consistency.</p>
+
+<ol>
+  <li>Explore Kaggle and find a database that would be useful for a CPT Project idea you have. Briefly discuss its potential purpose in your project.</li>
+</ol>
+
+<p>Kaggle would be useful for the project idea I have, which involves training pictures of buttons. https://www.kaggle.com/datasets/vshantam/sketch2code. This will be able to convert sketches to code, which is a cool AI feature for the CPT project.</p>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/2023/12/14/Class_6_Crowdsourcing_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

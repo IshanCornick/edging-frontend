@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Calculator Code | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Calculator Code" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is a Basic Calculator Code" />
+<meta property="og:description" content="This is a Basic Calculator Code" />
+<link rel="canonical" href="http://localhost:4200/student/c1.4/2023/08/23/calculator_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/c1.4/2023/08/23/calculator_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-23T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Calculator Code" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-23T00:00:00-07:00","datePublished":"2023-08-23T00:00:00-07:00","description":"This is a Basic Calculator Code","headline":"Calculator Code","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/c1.4/2023/08/23/calculator_IPYNB_2_.html"},"url":"http://localhost:4200/student/c1.4/2023/08/23/calculator_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Calculator Code
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-08-23T00:00:00-07:00" itemprop="datePublished">
+        Aug 23, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">This is a Basic Calculator Code</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expression</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">"Type the basic arithmetic expression with 2 numbers you want to solve"</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="s">'+'</span> <span class="ow">in</span> <span class="n">expression</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">'+'</span><span class="p">)]))</span>
+<span class="k">elif</span><span class="p">(</span><span class="s">'-'</span> <span class="ow">in</span> <span class="n">expression</span><span class="p">):</span>
+    <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"-"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"-"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n1</span><span class="o">-</span><span class="n">n2</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="s">'*'</span> <span class="ow">in</span> <span class="n">expression</span><span class="p">):</span>
+    <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"*"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"*"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n1</span><span class="o">*</span><span class="n">n2</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="s">'/'</span> <span class="ow">in</span> <span class="n">expression</span><span class="p">):</span>
+    <span class="n">n1</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">n2</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">expression</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n1</span><span class="o">/</span><span class="n">n2</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Please retry and follow the guidlines"</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3
+</code></pre></div></div>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/c1.4/2023/08/23/calculator_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

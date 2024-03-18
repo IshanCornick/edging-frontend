@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quiz | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Quiz" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Simple Addition Quiz" />
+<meta property="og:description" content="Simple Addition Quiz" />
+<link rel="canonical" href="http://localhost:4200/student/2023/08/30/quizgame_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/08/30/quizgame_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-30T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quiz" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-08-30T00:00:00-07:00","datePublished":"2023-08-30T00:00:00-07:00","description":"Simple Addition Quiz","headline":"Quiz","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/08/30/quizgame_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/08/30/quizgame_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Quiz
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-08-30T00:00:00-07:00" itemprop="datePublished">
+        Aug 30, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Simple Addition Quiz</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div id="output"></div>
+<script>
+const output = document.getElementById("output");
+</script>
+
+<script>
+  function newProblem(){
+    console.log("hello");
+    x=getRandomInt(10);
+    y=getRandomInt(10);
+    window.ans=x+y;
+    const array=[x,y,window.ans];
+    output.innerHTML=x+"+"+y+"=";
+    return array;
+
+  }
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  } 
+  function checkanswer(){
+    const entered = document. getElementById("name"). value
+    if(entered==window.ans){
+      output.innerHTML = "Correct";
+    }
+    else{
+      output.innerHTML="wrong";
+    }
+  }
+</script>
+
+<p><input type="text" id="name" name="name" />
+<button onclick="newProblem()">Click Here for a new Problem</button>
+<button onclick="checkanswer()">Submit</button></p>
+
+
+  </div><a class="u-url" href="/student/2023/08/30/quizgame_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Student Teach - SASS | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Student Teach - SASS" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A lesson on SASS! By Aditi, Eshika, Cindy, Avanthika, Nupur" />
+<meta property="og:description" content="A lesson on SASS! By Aditi, Eshika, Cindy, Avanthika, Nupur" />
+<link rel="canonical" href="http://localhost:4200/student/2024/01/16/SASS_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2024/01/16/SASS_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-16T00:00:00-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Student Teach - SASS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-01-16T00:00:00-08:00","datePublished":"2024-01-16T00:00:00-08:00","description":"A lesson on SASS! By Aditi, Eshika, Cindy, Avanthika, Nupur","headline":"Student Teach - SASS","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2024/01/16/SASS_IPYNB_2_.html"},"url":"http://localhost:4200/student/2024/01/16/SASS_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Student Teach - SASS
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      30 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2024-01-16T00:00:00-08:00" itemprop="datePublished">
+        Jan 16, 2024
+      </time>
+    </p><h2>Description</h2><p class="page-description">A lesson on SASS! By Aditi, Eshika, Cindy, Avanthika, Nupur</p><ul><li><a href="#sass-student-teach"><span style="color:cadetblue">SASS STUDENT TEACH</span></a></li><li><a href="#sass-basics">SASS Basics</a><ul><li><a href="#scss-vs-css">SCSS vs CSS</a></li><li><a href="#what-is-scss">What is SCSS?</a></li><li><a href="#nesting">Nesting</a></li><li><a href="#benefits-of-sass-over-traditional-css">Benefits of SASS over traditional CSS</a></li><li><a href="#modular-scss">Modular SCSS</a><ul><li><a href="#definition-of-variables">Definition of Variables:</a></li><li><a href="#significance-in-sass">Significance in SASS:</a></li><li><a href="#symbol-in-sass">Symbol in Sass:</a></li></ul></li><li><a href="#hack-1-create-a-button-which-can-relate-to-your-cpt-project-make-a-scss-file-or-have-an-inline-css-portion-to-give-your-button-color-dimensions-and-more-make-it-unique-try-to-play-with-nesting-as-wellmake-two-buttons-if-you-want">Hack 1: Create a button which can relate to your cpt project. Make a .scss file or have an inline css portion to give your button color, dimensions, and more! make it unique. Try to play with nesting as well…make two buttons if you want!</a></li></ul></li><li><a href="#advanced-sass">Advanced SASS</a><ul><li><a href="#operators">Operators</a></li><li><a href="#examples-of-some-operators">Examples of some operators</a></li><li><a href="#conditional-statements">Conditional Statements</a><ul><li><a href="#in-this-example">In this example:</a></li></ul></li></ul></li></ul></li><li><a href="#loops-in-sass">Loops in SASS</a><ul><li><a href="#in-this-example-1">In this example:</a></li></ul></li></ul></li></ul></li><li><a href="#hack-2-lets-try-an-ifelse-or-a-loop-try-to-relate-it-to-your-cpt-project-and-explain-how-this-could-be-utilized-in-your-project">Hack 2: Let’s try an if/else or a loop. Try to relate it to your cpt project and explain how this could be utilized in your project.</a></li></ul></li><li><a href="#functions-in-sass">Functions in SASS</a><ul><li><a href="#what-is-a-function">What is a function?</a></li></ul></li></ul></li><li><a href="#sass-functions">SASS Functions</a></li><li><a href="#built-in-functions">Built-in Functions</a></li><li><a href="#color-functions">Color Functions</a></li><li><a href="#math-functions">Math Functions</a></li><li><a href="#string-functions">String Functions</a></li><li><a href="#creating-custom-functions">Creating Custom Functions</a></li><li><a href="#hack-3-try-to-create-your-own-custom-function-use-the-color-functions-to-create-a-primary-color-gradient-integrate-for-loops-color-functions-and-creating-custom-functions">Hack 3: Try to create your own custom function. Use the color functions to create a primary color gradient (integrate for loops, color functions, and creating custom functions).</a></li><li><a href="#extending">Extending</a></li><li><a href="#inheritance">Inheritance</a><ul><li><a href="#in-this-example-text-styles-acts-as-a-template-for-common-text-styles-both-header-and-paragraph-selectors-inherit-these-styles-using-extend-if-you-update-text-styles-the-changes-will-reflect-in-both-the-header-and-paragraph-styles">In this example, %text-styles acts as a template for common text styles. Both .header and .paragraph selectors inherit these styles using @extend. If you update %text-styles, the changes will reflect in both the header and paragraph styles.</a><ul><li><a href="#help-for-hack-3">help for hack #3:</a></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="sass-student-teach"><span style="color:cadetblue">SASS STUDENT TEACH</span></h1>
+
+<!--- Nupur --->
+<h1 id="sass-basics">SASS Basics</h1>
+
+<p><strong>What is Sass?</strong><br />
+Short for Syntactically Awesome Style Sheets, SASS is a popular CSS pre-processor. SASS code is processed by the program and compiled into CSS code, which can be used to style HTML elements. SASS controls how it appears on the web page. It is compatible with all CSS versions.</p>
+
+<h2 id="scss-vs-css">SCSS vs CSS</h2>
+
+<p><strong>What is CSS?</strong><br />
+CSS is a computer language for laying out and structuring web pages (HTML or XML). For example, it is used to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features.</p>
+
+<h2 id="what-is-scss">What is SCSS?</h2>
+<p>It is basically more advanced than CSS. SCSS assists a user in adding various extra features to the CSS, such as nesting, variables, etc. These extra features make the process of writing the SCSS language quicker and easier as compared to that of writing the standard language of CSS.</p>
+
+<p><img src="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics/css-declaration-small.png" alt="Alt Text" /></p>
+
+<h2 id="nesting">Nesting</h2>
+
+<p>Nesting is a way to organize code for better readability. It involves placing one selector inside another.
+In regular CSS, SASS helps organize code. Avoid excessive nesting to prevent overqualified selectors that can be challenging to read and maintain.</p>
+
+<p><img src="https://blog.jetbrains.com/wp-content/uploads/2023/07/CSS-Nesting-Example-without-Nesting.png" alt="CSS-Nesting-Example-without-Nesting.png" /></p>
+
+<p><img src="https://blog.jetbrains.com/wp-content/uploads/2023/07/CSS-Nesting-Nesting-Example.png" alt="CSS-Nesting-Nesting-Example.png" /></p>
+
+<h2 id="benefits-of-sass-over-traditional-css">Benefits of SASS over traditional CSS</h2>
+<ul>
+  <li><strong>Improved code organization:</strong> SASS offers enhanced code organization through features like nested rules and modular imports, promoting a more structured and readable stylesheet.</li>
+  <li><strong>Maintainability:</strong> SASS facilitates easier maintenance with variables, mixins, and functions, reducing code redundancy and making updates and changes more efficient.</li>
+  <li><strong>Advanced features:</strong> SASS provides advanced features such as variables, mixins, inheritance, and logic operators. This allows for more dynamic stylesheets than CSS.</li>
+</ul>
+
+<h2 id="modular-scss">Modular SCSS</h2>
+
+<p>Using Modular SCSS enables you to divide your SCSS files into several pieces and compile them into a unified CSS file.</p>
+<ul>
+  <li>add an underscore (_) before the filenames.scss</li>
+  <li>import it into your file without the underscore, and all the styles will come along</li>
+  <li>using a partial is that it allows you to break down the code for multiple components in larger websites</li>
+  <li>ll the styles in the partial will be included and can be used in the main file as if they were originally defined in the main file itself</li>
+</ul>
+
+<h3 id="definition-of-variables">Definition of Variables:</h3>
+<p>A variable is essentially a container that stores a value.</p>
+
+<h3 id="significance-in-sass">Significance in SASS:</h3>
+<p>In SASS, utilizing variables allows for the convenient reuse of a value throughout the stylesheet.</p>
+
+<h3 id="symbol-in-sass">Symbol in Sass:</h3>
+<p>The $ symbol is employed in Sass to signify and designate a variable</p>
+
+<h2 id="hack-1-create-a-button-which-can-relate-to-your-cpt-project-make-a-scss-file-or-have-an-inline-css-portion-to-give-your-button-color-dimensions-and-more-make-it-unique-try-to-play-with-nesting-as-wellmake-two-buttons-if-you-want">Hack 1: Create a button which can relate to your cpt project. Make a .scss file or have an inline css portion to give your button color, dimensions, and more! make it unique. Try to play with nesting as well…make two buttons if you want!</h2>
+
+<p>The Button</p>
+<style>
+        button {
+            color: blue;
+            border: 2px solid;
+        }
+    </style>
+
+<p>&lt;/head&gt;</p>
+<body>
+    <button type="button">BMake Button</button>
+</body>
+<p>&lt;/html&gt;</p>
+
+<p>example:</p>
+<style>
+        button {
+            color: blue;
+            border: 2px solid;
+        }
+    </style>
+
+<p>&lt;/head&gt;</p>
+<body>
+    <button type="button">Health!</button>
+</body>
+<p>&lt;/html&gt;</p>
+
+<!--- ADVANCED SASS --->
+
+<h1 id="advanced-sass">Advanced SASS</h1>
+<p>SASS stands for Syntactically Awesome Style Sheets. It is compatible with CSS and makes the CSS in a file more readable and efficent. For example, instead of having multiple CSS code cells throughout your webpage, you can have a page full of SASS that codes for the entire website.</p>
+
+<h2 id="operators">Operators</h2>
+<p>Operators are similar to Python syntax and help SASS users perform various operations on different variables. For example…</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Definition</th>
+      <th>Operator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>== to check if two values are equal</td>
+      <td>==</td>
+    </tr>
+    <tr>
+      <td>+ to add two values together</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>- to subtract two values</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>* to multiply two values</td>
+      <td>*</td>
+    </tr>
+    <tr>
+      <td>/ to divide two values</td>
+      <td>/</td>
+    </tr>
+    <tr>
+      <td>% to find the remainder of two values</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <td>&lt; to check if one value is less than another</td>
+      <td>&lt;</td>
+    </tr>
+    <tr>
+      <td>&gt; to check if one value is greater than another</td>
+      <td>&gt;</td>
+    </tr>
+    <tr>
+      <td>&lt;= to check if one value is less than or equal to another</td>
+      <td>&lt;=</td>
+    </tr>
+    <tr>
+      <td>&gt;= to check if one value is greater than or equal to another</td>
+      <td>&gt;=</td>
+    </tr>
+    <tr>
+      <td>and to use logical AND</td>
+      <td>and</td>
+    </tr>
+    <tr>
+      <td>or to use logical OR</td>
+      <td>or</td>
+    </tr>
+    <tr>
+      <td>not to use logical NOT</td>
+      <td>not</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="examples-of-some-operators">Examples of some operators</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Variables</span>
+<span class="err">$</span><span class="n">fruit1</span><span class="p">:</span> <span class="s">"watermelon"</span><span class="p">;</span>
+<span class="err">$</span><span class="n">fruit2</span><span class="p">:</span> <span class="s">"apple"</span><span class="p">;</span>
+<span class="err">$</span><span class="n">fruit3</span><span class="p">:</span> <span class="s">"tomato"</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">Testing</span> 
+<span class="err">$</span><span class="n">testing</span><span class="p">:</span> <span class="err">$</span><span class="n">fruit1</span> <span class="o">==</span> <span class="err">$</span><span class="n">fruit2</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">Print</span>
+<span class="c1">#testing {
+</span>    <span class="n">content</span><span class="p">:</span> <span class="n">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Cell In[1], line 12
+    }
+    ^
+SyntaxError: unmatched '}'
+</code></pre></div></div>
+
+<p>Intended answer: FALSE</p>
+
+<!--- Aditi --->
+<h2 id="conditional-statements">Conditional Statements</h2>
+<ul>
+  <li>Conditional Statements in SASS function similarly to Python and JavaScript.</li>
+  <li>They enable the execution of different actions based on varying conditions.</li>
+  <li>Examples include executing specific actions if a condition is true or taking alternative actions if it is false.</li>
+  <li>The @if directive in SASS allows for the application of different styles based on the truth value of a boolean expression.</li>
+  <li>SASS also provides the @else directive to define a set of styles if the preceding condition is not met or is false.</li>
+  <li>Additionally, the @else if directive in SASS allows for implementing alternative conditions if the initial one is not satisfied.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span><span class="n">condition1</span><span class="p">:</span> <span class="n">true</span><span class="p">;</span>
+<span class="err">$</span><span class="n">condition2</span><span class="p">:</span> <span class="n">false</span><span class="p">;</span>
+
+<span class="p">.</span><span class="n">element</span> <span class="p">{</span>
+  <span class="o">@</span><span class="k">if</span> <span class="err">$</span><span class="n">condition1</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">blue</span><span class="p">;</span> <span class="o">//</span> <span class="n">Applied</span> <span class="k">if</span> <span class="err">$</span><span class="n">condition1</span> <span class="ow">is</span> <span class="n">true</span>
+  <span class="p">}</span> <span class="o">@</span><span class="k">else</span> <span class="k">if</span> <span class="err">$</span><span class="n">condition2</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">red</span><span class="p">;</span> <span class="o">//</span> <span class="n">Applied</span> <span class="k">if</span> <span class="err">$</span><span class="n">condition1</span> <span class="ow">is</span> <span class="n">false</span> <span class="ow">and</span> <span class="err">$</span><span class="n">condition2</span> <span class="ow">is</span> <span class="n">true</span>
+  <span class="p">}</span> <span class="o">@</span><span class="k">else</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">:</span> <span class="n">green</span><span class="p">;</span> <span class="o">//</span> <span class="n">Applied</span> <span class="k">if</span> <span class="n">both</span> <span class="err">$</span><span class="n">condition1</span> <span class="ow">and</span> <span class="err">$</span><span class="n">condition2</span> <span class="n">are</span> <span class="n">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">In</span> <span class="n">this</span> <span class="n">i</span> <span class="n">can</span> <span class="n">use</span> <span class="n">it</span> <span class="n">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">different</span> <span class="n">options</span> <span class="k">for</span> <span class="n">the</span> <span class="n">buttons</span> <span class="ow">and</span> <span class="n">adding</span> <span class="n">different</span> <span class="n">eceatures</span> 
+</code></pre></div></div>
+
+<h5 id="in-this-example">In this example:</h5>
+<ul>
+  <li>If $condition1 is true, the text color will be blue.</li>
+  <li>If $condition1 is false and $condition2 is true, the text color will be red.</li>
+  <li>If both $condition1 and $condition2 are false, the text color will be green.</li>
+</ul>
+
+<h2 id="loops-in-sass">Loops in SASS</h2>
+<ul>
+  <li>SASS features loops with @for, @while, and @each decorators.</li>
+  <li>Loops repeat a block of code a specific number of times or until a certain condition is met, similar to other programming languages.</li>
+  <li>For Loops iterate through a list of values or a range of numbers.</li>
+  <li>While Loops continue iterating through a block of code until a specific condition is true, like reaching a certain value or meeting another condition.</li>
+  <li>It’s recommended to use @each and @for over while loops in SASS for clarity and faster compilation.</li>
+  <li>In SASS, lists are groups of values separated by commas or spaces, without special brackets like in JavaScript.</li>
+  <li>Lists are immutable in SASS, meaning they cannot be changed once created.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Define</span> <span class="n">a</span> <span class="nb">list</span>
+<span class="err">$</span><span class="n">colors</span><span class="p">:</span> <span class="n">red</span><span class="p">,</span> <span class="n">blue</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">yellow</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">Use</span> <span class="n">a</span> <span class="o">@</span><span class="n">each</span> <span class="n">loop</span> <span class="n">to</span> <span class="nb">apply</span> <span class="n">styles</span> <span class="n">to</span> <span class="n">each</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span>
+<span class="o">@</span><span class="n">each</span> <span class="err">$</span><span class="n">color</span> <span class="ow">in</span> <span class="err">$</span><span class="n">colors</span> <span class="p">{</span>
+  <span class="p">.</span><span class="n">box</span><span class="o">-</span><span class="c1">#{$color} {
+</span>    <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="err">$</span><span class="n">color</span><span class="p">;</span>
+    <span class="n">width</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">height</span><span class="p">:</span> <span class="mi">100</span><span class="n">px</span><span class="p">;</span>
+    <span class="n">margin</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Use</span> <span class="n">a</span> <span class="o">@</span><span class="k">for</span> <span class="n">loop</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">styles</span> <span class="k">for</span> <span class="n">a</span> <span class="nb">range</span> <span class="n">of</span> <span class="n">numbers</span>
+<span class="o">@</span><span class="k">for</span> <span class="err">$</span><span class="n">i</span> <span class="k">from</span> <span class="mi">1</span> <span class="n">through</span> <span class="mi">5</span> <span class="p">{</span>
+  <span class="p">.</span><span class="n">number</span><span class="o">-</span><span class="c1">#{$i} {
+</span>    <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span> <span class="o">*</span> <span class="err">$</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Use</span> <span class="n">a</span> <span class="o">@</span><span class="k">while</span> <span class="n">loop</span> <span class="n">to</span> <span class="nb">apply</span> <span class="n">styles</span> <span class="n">until</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">condition</span> <span class="ow">is</span> <span class="n">met</span>
+<span class="err">$</span><span class="n">i</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="o">@</span><span class="k">while</span> <span class="err">$</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="p">{</span>
+  <span class="p">.</span><span class="k">while</span><span class="o">-</span><span class="n">loop</span><span class="o">-</span><span class="c1">#{$i} {
+</span>    <span class="n">border</span><span class="p">:</span> <span class="mi">1</span><span class="n">px</span> <span class="n">solid</span> <span class="n">black</span><span class="p">;</span>
+    <span class="n">margin</span><span class="p">:</span> <span class="mi">5</span><span class="n">px</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="err">$</span><span class="n">i</span><span class="p">:</span> <span class="err">$</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="in-this-example-1">In this example:</h5>
+<ul>
+  <li>The @each loop iterates through each color in the $colors list, creating a CSS class for each with a different background color.</li>
+  <li>The @for loop generates styles for different font sizes based on a range of numbers.</li>
+  <li>The @while loop applies styles until the condition $i &lt; 3 is no longer true, creating CSS classes with borders and margins.</li>
+</ul>
+
+<h2 id="hack-2-lets-try-an-ifelse-or-a-loop-try-to-relate-it-to-your-cpt-project-and-explain-how-this-could-be-utilized-in-your-project">Hack 2: Let’s try an if/else or a loop. Try to relate it to your cpt project and explain how this could be utilized in your project.</h2>
+
+<h1 id="functions-in-sass">Functions in SASS</h1>
+
+<h4 id="what-is-a-function">What is a function?</h4>
+
+<p>A function is like a set of instructions that does a specific job. It’s a handy way to use the same set of instructions over and over, making things more efficient. We use functions a lot in programming languages like JavaScript to avoid repeating the same code.</p>
+
+<h2 id="sass-functions">SASS Functions</h2>
+<ul>
+  <li>SASS Functions help in defining advanced calculations and transformations for your stylesheet.</li>
+  <li>They allow complex operations on values, data manipulation, and dynamic content generation.</li>
+  <li>Both pre-built functions and custom functions (similar to JavaScript) are available in SASS.</li>
+  <li>SASS functions handle tasks like arithmetic operations, color manipulation, and working with strings.</li>
+  <li>Functions in SASS are akin to those in programming languages but are used within stylesheets to dynamically generate CSS code.</li>
+</ul>
+
+<!--- Cindy --->
+<h2 id="built-in-functions">Built-in Functions</h2>
+
+<ul>
+  <li>SASS has many built-in functions that allow users to manipulate strings, variables, colors, etc.</li>
+</ul>
+
+<h2 id="color-functions">Color Functions</h2>
+
+<ul>
+  <li>Similarly to Python and JS, SASS can also help users manipulate color codes</li>
+  <li>for example…</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation example</th>
+      <th>Intended Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.lighten(#E6E6FA, 30%);</td>
+      <td>// lightens the lavender by 30%</td>
+    </tr>
+    <tr>
+      <td>.darken(#E6E6FA, 40%);</td>
+      <td>// darkens the lavender by 40%</td>
+    </tr>
+    <tr>
+      <td>.opacify(#E6E6FA, 0.2);</td>
+      <td>// makes the color more opaque by a factor 0.2</td>
+    </tr>
+    <tr>
+      <td>.transparentize(#E6E6FA, 0.1);</td>
+      <td>// makes the color more transparent by a factor of 0.1</td>
+    </tr>
+    <tr>
+      <td>.mix(#E6E6FA, #ff0000, 50%);</td>
+      <td>// returns an even mix of two colors</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="math-functions">Math Functions</h2>
+
+<p>SASS can not only help us complete basic operations like addition and subtraction but also other, more complex calculations like floor, ceiling, min, max, and absolute value.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation example</th>
+      <th>Intended Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.round(1.7);</code></td>
+      <td>// returns 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.ceil(2.2);</code></td>
+      <td>// returns 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.floor(4.2);</code></td>
+      <td>// returns 4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.abs(-8.5);</code></td>
+      <td>// returns 8.5</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.min(101, 90, 30);</code></td>
+      <td>// returns 30</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.max(1, 2, 3);</code></td>
+      <td>// returns 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">.random(1, 100);</code></td>
+      <td>// returns a random number between 1 and 100</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="https://cdn.jim-nielsen.com/blog/2020/sass-in-css-lighten-darken.png" alt="sass-in-css-lighten-darken.png" /></p>
+
+<h2 id="string-functions">String Functions</h2>
+<ul>
+  <li>Allows users to manipulate strings, similar to concat in JS</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Operation example</th>
+      <th>Intended Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.to-upper-case(“hi”);</td>
+      <td>// returns “HI”</td>
+    </tr>
+    <tr>
+      <td>.to-lower-case(“HeLlO”);</td>
+      <td>// returns “hello”</td>
+    </tr>
+    <tr>
+      <td>.str-index(“hello world”, “world”, “hi”, “hey”);</td>
+      <td>// returns the index of the first occurrence of “world”</td>
+    </tr>
+    <tr>
+      <td>.str-insert(“hello”, “ world”, 3);</td>
+      <td>// inserts “ world” into “hello” at position 3, resulting in “helworldlo”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="creating-custom-functions">Creating Custom Functions</h2>
+
+<ul>
+  <li>Users can define functions using “@function name(arguments){}”</li>
+  <li>similar to a return function in JS, it returns a value from a funcitons</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">area</span> <span class="n">of</span> <span class="n">a</span> <span class="n">trapezoid</span>
+<span class="o">@</span><span class="n">function</span> <span class="n">trapezoid</span><span class="o">-</span><span class="n">area</span><span class="p">(</span><span class="err">$</span><span class="n">height</span><span class="p">,</span> <span class="err">$</span><span class="n">base1</span><span class="p">,</span> <span class="err">$</span><span class="n">base2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="err">$</span><span class="n">area</span><span class="p">:</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="err">$</span><span class="n">base1</span> <span class="o">+</span> <span class="err">$</span><span class="n">base2</span><span class="p">)</span> <span class="o">*</span> <span class="err">$</span><span class="n">height</span><span class="p">;</span>
+  <span class="o">@</span><span class="k">return</span> <span class="err">$</span><span class="n">area</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="o">//</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">perimeter</span> <span class="n">of</span> <span class="n">a</span> <span class="n">rectangle</span>
+<span class="o">@</span><span class="n">function</span> <span class="n">rectangle</span><span class="o">-</span><span class="n">perimeter</span><span class="p">(</span><span class="err">$</span><span class="n">width</span><span class="p">,</span> <span class="err">$</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+  <span class="err">$</span><span class="n">perimeter</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="err">$</span><span class="n">width</span> <span class="o">+</span> <span class="err">$</span><span class="n">length</span><span class="p">);</span>
+  <span class="o">@</span><span class="k">return</span> <span class="err">$</span><span class="n">perimeter</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="o">//</span> <span class="n">Example</span> <span class="n">usage</span>
+<span class="err">$</span><span class="n">trapezoidArea</span><span class="p">:</span> <span class="n">trapezoid</span><span class="o">-</span><span class="n">area</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span> <span class="o">//</span> <span class="n">Calculate</span> <span class="n">the</span> <span class="n">area</span> <span class="n">of</span> <span class="n">a</span> <span class="n">trapezoid</span>
+<span class="err">$</span><span class="n">rectanglePerimeter</span><span class="p">:</span> <span class="n">rectangle</span><span class="o">-</span><span class="n">perimeter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span> <span class="o">//</span> <span class="n">Calculate</span> <span class="n">the</span> <span class="n">perimeter</span> <span class="n">of</span> <span class="n">a</span> <span class="n">rectangle</span>
+
+
+<span class="o">//</span> <span class="n">Output</span> <span class="n">the</span> <span class="n">results</span>
+<span class="o">@</span><span class="n">debug</span> <span class="s">"Trapezoid Area: #{$trapezoidArea}"</span><span class="p">;</span>
+<span class="o">@</span><span class="n">debug</span> <span class="s">"Rectangle Perimeter: #{$rectanglePerimeter}"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="hack-3-try-to-create-your-own-custom-function-use-the-color-functions-to-create-a-primary-color-gradient-integrate-for-loops-color-functions-and-creating-custom-functions">Hack 3: Try to create your own custom function. Use the color functions to create a primary color gradient (integrate for loops, color functions, and creating custom functions).</h2>
+
+<h2 id="extending">Extending</h2>
+<ul>
+  <li>This allows users to share style between selectors, using a selector as an argument, and instructing one selector to inherit the style of another</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Example</span> <span class="n">of</span> <span class="n">extending</span>
+<span class="p">.</span><span class="n">button</span> <span class="p">{</span>
+  <span class="n">padding</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">background</span><span class="o">-</span><span class="n">color</span><span class="p">:</span> <span class="c1">#3498db;
+</span>  <span class="n">color</span><span class="p">:</span> <span class="c1">#fff;
+</span><span class="p">}</span>
+
+
+<span class="p">.</span><span class="n">submit</span><span class="o">-</span><span class="n">button</span> <span class="p">{</span>
+  <span class="o">@</span><span class="n">extend</span> <span class="p">.</span><span class="n">button</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">Additional</span> <span class="n">styles</span> <span class="k">for</span> <span class="p">.</span><span class="n">submit</span><span class="o">-</span><span class="n">button</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">here</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+  <li>Inheritance involves using a placeholder selector, represented by the percent sign %. Placeholder selectors act as templates for styles and are not compiled into CSS on their own.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Example</span> <span class="n">of</span> <span class="n">inheritance</span>
+<span class="o">%</span><span class="n">text</span><span class="o">-</span><span class="n">styles</span> <span class="p">{</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="p">:</span> <span class="s">'Arial'</span><span class="p">,</span> <span class="n">sans</span><span class="o">-</span><span class="n">serif</span><span class="p">;</span>
+  <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">14</span><span class="n">px</span><span class="p">;</span>
+  <span class="n">color</span><span class="p">:</span> <span class="c1">#333;
+</span><span class="p">}</span>
+
+
+<span class="p">.</span><span class="n">header</span> <span class="p">{</span>
+  <span class="o">@</span><span class="n">extend</span> <span class="o">%</span><span class="n">text</span><span class="o">-</span><span class="n">styles</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">Additional</span> <span class="n">styles</span> <span class="k">for</span> <span class="p">.</span><span class="n">header</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">here</span>
+<span class="p">}</span>
+
+
+<span class="p">.</span><span class="n">paragraph</span> <span class="p">{</span>
+  <span class="o">@</span><span class="n">extend</span> <span class="o">%</span><span class="n">text</span><span class="o">-</span><span class="n">styles</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">Additional</span> <span class="n">styles</span> <span class="k">for</span> <span class="p">.</span><span class="n">paragraph</span> <span class="n">can</span> <span class="n">be</span> <span class="n">added</span> <span class="n">here</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <h4 id="in-this-example-text-styles-acts-as-a-template-for-common-text-styles-both-header-and-paragraph-selectors-inherit-these-styles-using-extend-if-you-update-text-styles-the-changes-will-reflect-in-both-the-header-and-paragraph-styles">In this example, %text-styles acts as a template for common text styles. Both .header and .paragraph selectors inherit these styles using @extend. If you update %text-styles, the changes will reflect in both the header and paragraph styles.</h4>
+  </li>
+</ul>
+
+<h6 id="help-for-hack-3">help for hack #3:</h6>
+
+<style>
+@function primary-gradient-lighten($base-color, $steps, $lighten-amount) {
+    $gradient: $base-color;
+
+    @for $i from 1 through $steps {
+        $step: percentage($i / $steps);
+        $gradient: append($gradient, lighten($base-color, $lighten-amount * $step));
+    }
+
+    @return $gradient;
+}
+
+// Usage example
+$primary-color: #3498db;  // Replace with your primary color
+$gradient-steps: 10;      // Adjust the number of steps in the gradient
+$lighten-amount: 10%;     // Adjust the amount to lighten
+
+body {
+    background: linear-gradient(to bottom, primary-gradient-lighten($primary-color, $gradient-steps, $lighten-amount));
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+</style>
+
+  </div><a class="u-url" href="/student/2024/01/16/SASS_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

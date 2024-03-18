@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Flask_database_teamteach_ipynb_2_ | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Flask_database_teamteach_ipynb_2_" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What is a Database?" />
+<meta property="og:description" content="What is a Database?" />
+<link rel="canonical" href="http://localhost:4200/student/2023/01/17/flask_database_teamteach_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/01/17/flask_database_teamteach_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-17T00:00:00-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Flask_database_teamteach_ipynb_2_" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-01-17T00:00:00-08:00","datePublished":"2023-01-17T00:00:00-08:00","description":"What is a Database?","headline":"Flask_database_teamteach_ipynb_2_","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/01/17/flask_database_teamteach_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/01/17/flask_database_teamteach_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Flask_database_teamteach_ipynb_2_
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      36 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-01-17T00:00:00-08:00" itemprop="datePublished">
+        Jan 17, 2023
+      </time>
+    </p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="what-is-a-database">What is a Database?</h2>
+
+<p>To begin, let’s clarify what a database is and go over the most popular ones for different applications.</p>
+
+<p>A database which most of you should know is just a place to store data. Some popular databses for diffrent types of programs include . . .</p>
+
+<h3 id="1-sql-structured-query-language-databases">1. SQL (Structured Query Language) Databases:</h3>
+
+<p>A type of relational database that uses a structured query language for defining and manipulating data. Examples include:</p>
+
+<ul>
+  <li><strong>MySQL:</strong> A widely used open-source relational database management system.</li>
+  <li><strong>PostgreSQL:</strong> Known for its extensibility and support for advanced data types.</li>
+</ul>
+
+<h3 id="2-databases-for-application-development">2. Databases for Application Development:</h3>
+
+<p>In application development, NoSQL databases are often favored for their flexibility and scalability. Examples include:</p>
+
+<ul>
+  <li><strong>MongoDB:</strong> A document-oriented NoSQL database, ideal for handling JSON-like documents.</li>
+  <li><strong>Cassandra:</strong> A distributed NoSQL database designed for handling large amounts of data across commodity servers.</li>
+</ul>
+
+<h3 id="3-databases-for-web-development">3. Databases for Web Development:</h3>
+
+<p>Web development often involves databases that can efficiently manage dynamic content and user interactions. Two popular choices are:</p>
+
+<ul>
+  <li><strong>Firebase:</strong> A cloud-based platform that includes a real-time NoSQL database, suitable for building web and mobile applications.</li>
+  <li><strong>SQLite:</strong> A lightweight, embedded relational database often used in web development due to its simplicity and portability.</li>
+</ul>
+
+<p>These databases cater to various needs in the development landscape, providing developers with options based on the specific requirements of their projects. Whether it’s relational databases for structured data or NoSQL databases for flexibility, the choice of a database depends on factors such as data structure, scalability, and the nature of the application being developed.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">--</span> <span class="n">code</span>
+
+<span class="o">--</span> <span class="n">MySQL</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">users</span> <span class="p">(</span>
+  <span class="nb">id</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+  <span class="n">username</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+  <span class="n">email</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="o">--</span> <span class="n">post</span> <span class="n">sql</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">products</span> <span class="p">(</span>
+  <span class="n">product_id</span> <span class="n">SERIAL</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+  <span class="n">product_name</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+  <span class="n">price</span> <span class="n">DECIMAL</span>
+<span class="p">);</span>
+
+<span class="o">--</span> <span class="n">Biggest</span> <span class="n">diffrence</span> <span class="ow">is</span> <span class="n">postsql</span> <span class="n">supports</span> <span class="n">more</span> <span class="ow">and</span> <span class="ow">is</span> <span class="n">more</span> <span class="n">intensive</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">MongoDb</span>
+
+<span class="n">db</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span>
+    <span class="n">username</span><span class="p">:</span> <span class="s">"john_doe"</span><span class="p">,</span>
+    <span class="n">email</span><span class="p">:</span> <span class="s">"john.doe@example.com"</span>
+  <span class="p">});</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">--</span> <span class="n">cql</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">user_profiles</span> <span class="p">(</span>
+    <span class="n">user_id</span> <span class="n">UUID</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+    <span class="n">first_name</span> <span class="n">TEXT</span><span class="p">,</span>
+    <span class="n">last_name</span> <span class="n">TEXT</span><span class="p">,</span>
+    <span class="n">email</span> <span class="n">TEXT</span>
+  <span class="p">);</span>
+
+
+<span class="o">--</span> <span class="n">Cassandra</span> <span class="n">Query</span> <span class="n">Language</span> <span class="p">(</span><span class="n">CQL</span><span class="p">)</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">query</span> <span class="n">language</span> <span class="n">designed</span> <span class="k">for</span> <span class="n">Apache</span> <span class="n">Cassandra</span><span class="p">,</span> 
+<span class="o">--</span> <span class="n">a</span> <span class="n">highly</span> <span class="n">scalable</span> <span class="ow">and</span> <span class="n">distributed</span> <span class="n">NoSQL</span> <span class="n">database</span><span class="p">.</span> <span class="n">Unlike</span> <span class="n">SQL</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">relational</span><span class="p">,</span> 
+<span class="o">--</span> <span class="n">CQL</span> <span class="ow">is</span> <span class="n">specifically</span> <span class="n">tailored</span> <span class="k">for</span> <span class="n">managing</span> <span class="ow">and</span> <span class="n">querying</span> <span class="n">non</span><span class="o">-</span><span class="n">relational</span><span class="p">,</span> <span class="n">decentralized</span> <span class="n">data</span> <span class="n">storage</span> <span class="ow">in</span> <span class="n">Cassandra</span><span class="p">.</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Firebase</span>
+
+<span class="n">const</span> <span class="n">ref</span> <span class="o">=</span> <span class="n">firebase</span><span class="p">.</span><span class="n">database</span><span class="p">().</span><span class="n">ref</span><span class="p">(</span><span class="s">'users'</span><span class="p">);</span>
+<span class="n">ref</span><span class="p">.</span><span class="n">on</span><span class="p">(</span><span class="s">'value'</span><span class="p">,</span> <span class="p">(</span><span class="n">snapshot</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">val</span><span class="p">());</span>
+<span class="p">});</span>
+
+</code></pre></div></div>
+
+<h2 id="for-this-lesson-we-will-be-covering-sql-and-user-logins">For this Lesson we will be covering SQL and User Logins.</h2>
+
+<p>IF You want to follow along in your own flask feel free to code along otherwise its more than ok to just listen and ask questions.</p>
+
+<p>PS: To code along a SQL DB link or file is needed</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+
+<span class="c1"># Setup of key Flask object (app)
+</span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="c1"># Setup SQLAlchemy object and properties for the database (db)
+</span><span class="n">database</span> <span class="o">=</span> <span class="s">'sqlite:///sqlite.db'</span>  <span class="c1"># path and filename of database
+</span><span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>  <span class="c1"># Configures Mods
+</span><span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">database</span>  <span class="c1"># Configurs the URI of the databse
+</span><span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'SECRET_KEY'</span>  <span class="c1"># Adds in a KEY, think of API keys
+</span><span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>  <span class="c1"># Calls the function
+</span>
+
+<span class="c1"># This belongs in place where it runs once per project
+</span><span class="n">db</span><span class="p">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="explaining-the-setup-and-imports">Explaining the Setup and Imports</h2>
+
+<p>To begin we always need to import what we are using. We start off with a basic flask setup and then add in the specalized SQL imports needed.</p>
+
+<p>Then the URI/file path is stored in database.</p>
+
+<p>This is then called in the app.config.</p>
+
+<p>Finnaly we call db=SQLAlechemy()  This is the key line needed to allow python interactions( makes your life easier)</p>
+
+<h3 id="now-lets-look-into-models">Now lets look into Models</h3>
+<p>No need to type all of this RN.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""" 
+Database dependencies to support SQLite examples 
+"""</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy.exc</span> <span class="kn">import</span> <span class="n">IntegrityError</span>
+<span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span><span class="p">,</span> <span class="n">check_password_hash</span>
+
+<span class="s">''' 
+Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into a Python shell and follow along 
+'''</span>
+
+<span class="c1"># Define the User class to manage actions in the 'users' table
+# -- Object-Relational Mapping (ORM) is the key concept of SQLAlchemy
+# -- a.) db.Model is like an inner layer of the onion in ORM
+# -- b.) User represents data we want to store, something that is built on db.Model
+# -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
+</span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">'users'</span>  <span class="c1"># table name is plural, class name is singular
+</span>
+    <span class="c1"># Define the User schema with "vars" from object
+</span>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">_name</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">_uid</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">_password</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">_dob</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Date</span><span class="p">)</span>
+
+    <span class="c1"># constructor of a User object, initializes the instance variables within object (self)
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">"123qwerty"</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">today</span><span class="p">()):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>    <span class="c1"># variables with self prefix become part of the object
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">_uid</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># not a date type     
+</span>            <span class="n">dob</span> <span class="o">=</span> <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_dob</span> <span class="o">=</span> <span class="n">dob</span>
+
+    <span class="c1"># a name getter method, extracts name from object
+</span>    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_name</span>
+    
+    <span class="c1"># a setter function, allows name to be updated after initial object creation
+</span>    <span class="o">@</span><span class="n">name</span><span class="p">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+    
+    <span class="c1"># a getter method, extracts uid from object
+</span>    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">uid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_uid</span>
+    
+    <span class="c1"># a setter function, allows uid to be updated after initial object creation
+</span>    <span class="o">@</span><span class="n">uid</span><span class="p">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">uid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_uid</span> <span class="o">=</span> <span class="n">uid</span>
+        
+    <span class="c1"># check if uid parameter matches user id in object, return boolean
+</span>    <span class="k">def</span> <span class="nf">is_uid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_uid</span> <span class="o">==</span> <span class="n">uid</span>
+    
+    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">_password</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">+</span> <span class="s">"..."</span> <span class="c1"># because of security only show 1st characters
+</span>
+    <span class="c1"># update password, this is conventional method used for setter
+</span>    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="s">"""Create a hashed password."""</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_password</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">'sha256'</span><span class="p">)</span>
+
+    <span class="c1"># check password parameter against stored/encrypted password
+</span>    <span class="k">def</span> <span class="nf">is_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="s">"""Check against hashed password."""</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">check_password_hash</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_password</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    
+    <span class="c1"># dob property is returned as string, a string represents date outside object
+</span>    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">dob</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dob_string</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">_dob</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%m-%d-%Y'</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dob_string</span>
+    
+    <span class="c1"># dob setter, verifies date type before it is set or default to today
+</span>    <span class="o">@</span><span class="n">dob</span><span class="p">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dob</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># not a date type     
+</span>            <span class="n">dob</span> <span class="o">=</span> <span class="n">date</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_dob</span> <span class="o">=</span> <span class="n">dob</span>
+    
+    <span class="c1"># age is calculated field, age is returned according to date of birth
+</span>    <span class="o">@</span><span class="nb">property</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="o">-</span> <span class="bp">self</span><span class="p">.</span><span class="n">_dob</span><span class="p">.</span><span class="n">year</span> <span class="o">-</span> <span class="p">((</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">_dob</span><span class="p">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">_dob</span><span class="p">.</span><span class="n">day</span><span class="p">))</span>
+    
+    <span class="c1"># output content using str(object) is in human-readable form
+</span>    <span class="c1"># output content using json dumps, this is ready for API response
+</span>    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+
+    <span class="c1"># CRUD create/add a new record to the table
+</span>    <span class="c1"># returns self or None on error
+</span>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># creates a person object from User(db.Model) class, passes initializers
+</span>            <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># add prepares to persist person object to Users table
+</span>            <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>  <span class="c1"># SqlAlchemy "unit of work pattern" requires a manual commit
+</span>            <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">except</span> <span class="n">IntegrityError</span><span class="p">:</span>
+            <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="c1"># CRUD read converts self to dictionary
+</span>    <span class="c1"># returns dictionary
+</span>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">"id"</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span>
+            <span class="s">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s">"uid"</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="s">"dob"</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">dob</span><span class="p">,</span>
+            <span class="s">"age"</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">age</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="c1"># CRUD update: updates user name, password, phone
+</span>    <span class="c1"># returns self
+</span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">""</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">""</span><span class="p">):</span>
+        <span class="s">"""only updates values with length"""</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="c1"># performs update when id exists
+</span>        <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="c1"># CRUD delete: remove self
+</span>    <span class="c1"># None
+</span>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">session</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+</code></pre></div></div>
+
+<h2 id="simplifying-the-code">Simplifying the Code</h2>
+
+<p>Imagine you have a cool app where users can sign up, log in, and do all sorts of fun stuff. Now, to keep track of these users and their information, we use something called a “model.” Think of a model like a blueprint or a design for how we want to organize and store information about each user.</p>
+
+<p>In our app, we have a special model called the “User” model. This model knows exactly what kind of information we want to store for each user, like their name, username, password, and even their date of birth. It’s like a form we fill out for every user, and the User model helps us keep everything neat and organized.</p>
+
+<p>But here’s the cool part – we don’t have to worry too much about the technical details of talking to a database (where we store all this user info). We have a friend called SQLAlchemy that helps us with that. SQLAlchemy is like a magic assistant that takes care of the communication between our app and the database. So, when a new user signs up, SQLAlchemy helps us save their info in the database.</p>
+
+<p>The User model also has some superpowers. It can check if a password is correct, calculate a user’s age from their date of birth, and even update or delete user information when needed. All these actions are part of what we call CRUD – Create, Read, Update, and Delete.</p>
+
+<p>In simple terms, the User model is like a superhero that helps our app manage and organize information about all the cool people who use it. It’s the backbone that keeps everything running smoothly, making sure our app knows who’s who and what they’re up to!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Database Creation and Testing """</span>
+
+
+<span class="c1"># Builds working data for testing
+</span><span class="k">def</span> <span class="nf">initUsers</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="s">"""Create database and tables"""</span>
+        <span class="n">db</span><span class="p">.</span><span class="n">create_all</span><span class="p">()</span>
+        <span class="s">"""Tester data for table"""</span>
+        <span class="n">u1</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Thomas Edison'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">'toby'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'123toby'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1847</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+        <span class="n">u2</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Nikola Tesla'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">'niko'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'123niko'</span><span class="p">)</span>
+        <span class="n">u3</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Alexander Graham Bell'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">'lex'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'123lex'</span><span class="p">)</span>
+        <span class="n">u4</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Eli Whitney'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">'whit'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'123whit'</span><span class="p">)</span>
+        <span class="n">u5</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Indiana Jones'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">'indi'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+        <span class="n">u6</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">'Marion Ravenwood'</span><span class="p">,</span> <span class="n">uid</span><span class="o">=</span><span class="s">'raven'</span><span class="p">,</span> <span class="n">dob</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1921</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">))</span>
+
+
+        <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">,</span> <span class="n">u4</span><span class="p">,</span> <span class="n">u5</span><span class="p">,</span> <span class="n">u6</span><span class="p">]</span>
+
+        <span class="s">"""Builds sample user/note(s) data"""</span>
+        <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="s">'''add user to table'''</span>
+                <span class="nb">object</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="n">create</span><span class="p">()</span>
+                <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Created new uid </span><span class="si">{</span><span class="nb">object</span><span class="p">.</span><span class="n">uid</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>  <span class="c1"># error raised if object nit created
+</span>                <span class="s">'''fails with bad or duplicate data'''</span>
+                <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Records exist uid </span><span class="si">{</span><span class="n">user</span><span class="p">.</span><span class="n">uid</span><span class="si">}</span><span class="s">, or error."</span><span class="p">)</span>
+                
+<span class="n">initUsers</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="what-this-did">What this Did</h2>
+
+<p>In the code above we set up 6 users and it only took us inputing a few fields like Name, UID, password etc. Look how much easier it is to just call the User() and add in paramas than it would be to hard code every user. Thats the power behind Models. It may be alot of code to start but it allows for incredibily quick user creation and allows us to edit features the users have very quickly.</p>
+
+<h2 id="finding-users-using-our-id">Finding Users Using Our ID</h2>
+
+<p>Earlier we set up a few paramaters for the USER, but what do these let us do? A simple feature is finding the user by their ID. In code below we have a function called find_by_uid where the uid is passed in. Here we filter the query and then find the very first uid that matches the given uid. In simple words we just find the first ID that matches our desiered ID.</p>
+
+<p>Then we can check if the password the user puts in is equal to the password saved for that ID. First we would find the data for the user who has that ID. Then we would find the password for that user and check if the password matches the given password.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># SQLAlchemy extracts single user from database matching User ID
+</span><span class="k">def</span> <span class="nf">find_by_uid</span><span class="p">(</span><span class="n">uid</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">_uid</span><span class="o">=</span><span class="n">uid</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">user</span> <span class="c1"># returns user object
+</span>
+<span class="c1"># Check credentials by finding user and verify password
+</span><span class="k">def</span> <span class="nf">check_credentials</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="c1"># query email and return user record
+</span>    <span class="n">user</span> <span class="o">=</span> <span class="n">find_by_uid</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">is_password</span><span class="p">(</span><span class="n">password</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+        
+<span class="c1">#check_credentials("indi", "123qwerty")
+</span></code></pre></div></div>
+
+<h2 id="how-to-make-users">How to Make Users?</h2>
+
+<p>Making users is the most crucial part, but you may be thinking didn’t we already make our users earlier?  Yes we did but that was with us hard coding it what if we wanted the user to input their own information like sign up pages do?. Well to do that we need to make a Create function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Inputs, Try/Except, and SQLAlchemy work together to build a valid database object
+</span><span class="k">def</span> <span class="nf">create</span><span class="p">():</span>
+    <span class="c1"># optimize user time to see if uid exists
+</span>    <span class="n">uid</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter your user id:"</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">find_by_uid</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Found</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="k">return</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span> <span class="c1"># keep going
+</span>    
+    <span class="c1"># request value that ensure creating valid object
+</span>    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter your name:"</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter your password"</span><span class="p">)</span>
+    
+    <span class="c1"># Initialize User object before date
+</span>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+                <span class="n">uid</span><span class="o">=</span><span class="n">uid</span><span class="p">,</span> 
+                <span class="n">password</span><span class="o">=</span><span class="n">password</span>
+                <span class="p">)</span>
+    
+    <span class="c1"># create user.dob, fail with today as dob
+</span>    <span class="n">dob</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter your date of birth 'YYYY-MM-DD'"</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user</span><span class="p">.</span><span class="n">dob</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="s">'%Y-%m-%d'</span><span class="p">).</span><span class="n">date</span><span class="p">()</span>
+    <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+        <span class="n">user</span><span class="p">.</span><span class="n">dob</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">today</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Invalid date </span><span class="si">{</span><span class="n">dob</span><span class="si">}</span><span class="s"> require YYYY-mm-dd, date defaulted to </span><span class="si">{</span><span class="n">user</span><span class="p">.</span><span class="n">dob</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+           
+    <span class="c1"># write object to database
+</span>    <span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="n">app_context</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">object</span> <span class="o">=</span> <span class="n">user</span><span class="p">.</span><span class="n">create</span><span class="p">()</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"Created</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nb">object</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+        <span class="k">except</span><span class="p">:</span>  <span class="c1"># error raised if object not created
+</span>            <span class="k">print</span><span class="p">(</span><span class="s">"Unknown error uid {uid}"</span><span class="p">)</span>
+        
+<span class="n">create</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>In the code above we have some basic functions. We ask the user various inputs and store the name, password etc. Then we call our User function and input these details. Then we check if theres any form errors. These are all the basic functionalitys that forms due but the cod ebehind them can be quite complex at some times. Thats why it is so important to study how these models, and functions work to ensure perfect app functionality.</p>
+
+<h2 id="optional-hacks">Optional Hacks</h2>
+
+<p>-Add this to your website &lt;/br&gt;
+-Create the delete and update user functions &lt;/br&gt;
+-Create USer functionality i.e you return the id of the user who presses a certain button.</p>
+
+  </div><a class="u-url" href="/student/2023/01/17/flask_database_teamteach_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Homework 3 Boolean Expression | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Homework 3 Boolean Expression" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Homework for the third teamteach" />
+<meta property="og:description" content="Homework for the third teamteach" />
+<link rel="canonical" href="http://localhost:4200/student/2022/10/10/booleanteamteach_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2022/10/10/booleanteamteach_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-10T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Homework 3 Boolean Expression" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-10T00:00:00-07:00","datePublished":"2022-10-10T00:00:00-07:00","description":"Homework for the third teamteach","headline":"Homework 3 Boolean Expression","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2022/10/10/booleanteamteach_IPYNB_2_.html"},"url":"http://localhost:4200/student/2022/10/10/booleanteamteach_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Homework 3 Boolean Expression
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-10-10T00:00:00-07:00" itemprop="datePublished">
+        Oct 10, 2022
+      </time>
+    </p><h2>Description</h2><p class="page-description">Homework for the third teamteach</p><ul><li><a href="#notes">Notes</a></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Problem 1: Write a Python program that uses boolean logic to determine if a user is eligible to vote. The criteria for eligibility is that the user must be a citizen and must be 18 or older. Include comments in your code to explain each part of the program.</p>
+
+<p>Problem 2: A company decided to give bonus of 5% to employee if his/her year of service is more than 5 years. Ask user for their salary and year of service and print the net bonus amount.</p>
+
+<p>Problem 3: A school has following rules for grading system:
+a. Below 25 - F
+b. 25 to 45 - E
+c. 45 to 50 - D
+d. 50 to 60 - C
+e. 60 to 80 - B
+f. Above 80 - A
+Ask user to enter marks and print the corresponding grade.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#1
+</span><span class="n">age</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">"Type your age"</span><span class="p">)</span>
+<span class="n">citizen</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">"Type yes or no for if you are a citizen"</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">age</span><span class="o">&gt;=</span><span class="mi">18</span> <span class="ow">and</span> <span class="n">citizen</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s">"yes"</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are elgiible to vote"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are not elgiible to vote"</span><span class="p">)</span>
+<span class="c1"># I first took input from the user
+# I then checked in an if statement if the user's age is above 18 and if they are a citizen
+# If they are citizen I say they elligible if not I say they not elligible
+</span>
+<span class="c1">#2 
+</span><span class="n">current_salary</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Type your salary"</span><span class="p">))</span>
+<span class="n">years</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s">"Type the amount of years you have serviced the company"</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">years</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">current_salary</span><span class="o">*</span><span class="mf">1.05</span><span class="p">,</span> <span class="s">"is your new salary"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">current_salary</span><span class="p">,</span> <span class="s">"is your salary"</span><span class="p">)</span>
+
+<span class="c1">#I first take input of the salary and years of service
+#If the years of service greater than five I output the new updated salary and if not I output the same salary
+#3
+</span><span class="n">current</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">if</span><span class="p">(</span><span class="n">current</span><span class="o">&lt;</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You have an F"</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">current</span><span class="o">&gt;=</span><span class="mi">25</span> <span class="ow">and</span> <span class="n">current</span><span class="o">&lt;</span><span class="mi">45</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You have an D"</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">current</span><span class="o">&gt;=</span><span class="mi">45</span> <span class="ow">and</span> <span class="n">current</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You have an C"</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">current</span><span class="o">&gt;=</span><span class="mi">60</span> <span class="ow">and</span> <span class="n">current</span><span class="o">&lt;</span><span class="mi">80</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You have an B"</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">current</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You have an A"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="notes">Notes</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Types of Comparison Operators
+    -Equal to: a = b
+    -Not equal to: a != b
+    -Greater than: a &gt; b
+    -Less than: a &lt; b
+    -Greater than or equal to: a &gt;= b
+    -Less than or equal to: a &lt;= b
+    - AND operator: Checks if both conditions true and if so then returns true otherwise false
+    - OR operator: If one is true than the whole expression is true
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/student/2022/10/10/booleanteamteach_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

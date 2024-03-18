@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Key Commits for Passion Project | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Key Commits for Passion Project" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Key Commits" />
+<meta property="og:description" content="Key Commits" />
+<link rel="canonical" href="http://localhost:4200/student/2023/11/05/keycommits_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/11/05/keycommits_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-11-05T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Key Commits for Passion Project" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-11-05T00:00:00-07:00","datePublished":"2023-11-05T00:00:00-07:00","description":"Key Commits","headline":"Key Commits for Passion Project","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/11/05/keycommits_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/11/05/keycommits_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Key Commits for Passion Project
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      19 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-11-05T00:00:00-07:00" itemprop="datePublished">
+        Nov 5, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Key Commits</p><ul><li><a href="#first-key-commit">First Key Commit</a></li><li><a href="#2nd-key-commit">2nd Key commit</a></li><li><a href="#3rd-key-commit">3rd Key Commit</a></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+
+<span class="k">class</span> <span class="nc">aienglish</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Load the dataset
+</span>       <span class="bp">self</span><span class="p">.</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'datatrainisenglish.csv'</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+    <span class="c1"># Split the data
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">df</span><span class="p">[</span><span class="s">'Text'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">df</span><span class="p">[</span><span class="s">'IsEnc'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+        <span class="c1"># TF-IDF vectorization
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">X_train_tfidf</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tfidf_vectorizer</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_train</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">X_test_tfidf</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">tfidf_vectorizer</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Train a Logistic Regression model
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_train_tfidf</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">y_train</span><span class="p">)</span>
+
+        <span class="c1"># Make predictions
+</span>        <span class="n">y_pred</span> <span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_test_tfidf</span><span class="p">)</span>
+
+        <span class="c1"># Evaluate the model
+</span>        <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Accuracy:"</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
+
+        <span class="n">joblib</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">,</span> <span class="s">"Checkingenglishmodel.joblib"</span><span class="p">)</span>
+
+        <span class="c1"># Save the vectorizer to a file
+</span>        <span class="n">joblib</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">tfidf_vectorizer</span><span class="p">,</span> <span class="s">"vectorizerenglish.joblib"</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<h1 id="first-key-commit">First Key Commit</h1>
+<p>This commit is an Ai english class that uses logistic progressino to tell whether the encrypted text when decrypted with each key is actually decrypted or not. It is essential part of decrypt the key-based ciphers as it brute forces all the keys. This AI was able to work extremely well producing accuracy rates of around 90% in testing.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># imports
+</span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span> <span class="c1"># converting text to numbers
+</span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span> <span class="c1">#Naive Bayes Multinomial Algorthim AI model
+</span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span> <span class="c1"># Data Formatting
+</span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span> <span class="c1"># scoring the model
+</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> <span class="c1"># Support Vector Machine
+</span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span> <span class="c1"># Random Forest
+</span><span class="kn">import</span> <span class="nn">keras</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+<span class="k">class</span> <span class="nc">ai</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="c1"># reading input in
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">ciphers</span><span class="o">=</span><span class="p">[</span><span class="s">'Cipher'</span><span class="p">,</span><span class="s">'ceaser'</span><span class="p">,</span><span class="s">'morse'</span><span class="p">,</span><span class="s">'substitution'</span><span class="p">,</span><span class="s">'hexadecimal'</span><span class="p">,</span><span class="s">'binary'</span><span class="p">]</span> <span class="c1"># cipher name list
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span> <span class="c1"># creating the bag-of-words
+</span>        
+        
+    <span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># preprocessing or training
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">vectorizer</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="s">'Text'</span><span class="p">])</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">vectorizer</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="s">'Text'</span><span class="p">]).</span><span class="n">toarray</span><span class="p">()</span> <span class="c1"># transofrming the input text for training
+</span>        <span class="n">Y_series</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">data</span><span class="p">[</span><span class="s">'Cipher'</span><span class="p">]</span>
+        <span class="n">Y_encoded</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Y_series</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">!=</span><span class="s">'Cipher'</span><span class="p">):</span>
+                <span class="n">Y_encoded</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ciphers</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="c1"># categorical encoding matching number to output text
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">Y</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y_encoded</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">Y_train</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        
+
+        
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="p">.</span><span class="n">Sequential</span><span class="p">([</span> <span class="c1"># creating the model with keras
+</span>            <span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)),</span>
+            <span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>  <span class="c1"># Removing percentage nuerons to prevent overfit
+</span>            <span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">),</span>
+            <span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>  <span class="c1"># Removing percentage of nuerons to prevent overfit
+</span>            <span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ciphers</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">)</span>
+        <span class="p">])</span>
+        <span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s">'sparse_categorical_crossentropy'</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="c1"># Y_pred =self.model.predict(self.X_test) # predicting the testing model data
+</span>        <span class="c1"># Y_train_pred=self.model.predict(self.X_train)
+</span>        <span class="c1"># Accuracy for testing and training to check overfit and underfit
+</span>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">model_json</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">to_json</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"model.json"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+            <span class="n">json_file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">model_json</span><span class="p">)</span>
+        <span class="c1"># Saving the nueral network weights into the file for quick evaluation and prediction rather than just training+predict every time
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s">"Decryptionclassify.h5"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Checkpoint:THEE Model is Saved"</span><span class="p">)</span> <span class="c1"># checkpoint to display that the file is updated
+</span>    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"EVALUATION REPORT"</span><span class="p">,</span><span class="s">"-"</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">Y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_test</span><span class="p">)</span>  <span class="c1"># Predicting the testing model data and the training model data for accuracy later to check stuff
+</span>        <span class="n">Y_train_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">X_train</span><span class="p">)</span>
+        <span class="n">Y_pred_classes</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">Y_train_pred_classes</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Y_train_pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Getting the score to test how good the model is and to see if overfitting occurs and other issues
+</span>        <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">Y_test</span><span class="p">,</span> <span class="n">Y_pred_classes</span><span class="p">)</span>
+        <span class="n">train_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_train_pred_classes</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Testing Accuracy "</span><span class="p">,</span> <span class="n">test_accuracy</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Training Accuracy "</span><span class="p">,</span> <span class="n">train_accuracy</span><span class="p">)</span>
+        
+        
+        
+       
+        
+        
+        
+    
+
+
+</code></pre></div></div>
+
+<h1 id="2nd-key-commit">2nd Key commit</h1>
+<p>This commit is the second AI class that focused on clasifying each encrypted text into a different type of encryption such as ceasar, substitution, binary, etc. This commit is important for the decryption part of our website as it will help us clasify which decryption algorithim to run and if we need to use the other AI model for key-based ciphers. This AI model also uses Deep Learning network to classify as I found it produced slightly better results at 70% testing accuracy.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="c1"># import "packages" from flask
+</span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>  <span class="c1"># import render_template from "public" flask libraries
+</span><span class="kn">from</span> <span class="nn">aienglishprediction</span> <span class="kn">import</span> <span class="n">aienglishprediction</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+<span class="c1"># import "packages" from "this" project
+</span><span class="kn">from</span> <span class="nn">__init__</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span><span class="n">db</span>  <span class="c1"># Definitions initialization
+</span><span class="kn">from</span> <span class="nn">rsa</span> <span class="kn">import</span> <span class="n">RSA</span> <span class="c1"># import RSA cipher
+</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span> <span class="k">as</span> <span class="n">url_quote</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">caesar</span> <span class="kn">import</span> <span class="n">caesar</span> <span class="k">as</span> <span class="n">c1</span> <span class="c1"># first cipher ceasar
+</span><span class="kn">from</span> <span class="nn">substitution</span> <span class="kn">import</span> <span class="n">substitution</span> <span class="k">as</span> <span class="n">c2</span> <span class="c1"># second cipher subtitution
+</span><span class="kn">from</span> <span class="nn">generate</span> <span class="kn">import</span> <span class="n">generate</span> <span class="k">as</span> <span class="n">gn</span> <span class="c1"># importing the generator api
+</span><span class="kn">from</span> <span class="nn">morse</span> <span class="kn">import</span> <span class="n">morse</span> <span class="c1"># importing morse cipher
+</span><span class="kn">from</span> <span class="nn">binary</span> <span class="kn">import</span> <span class="n">binary</span> <span class="c1"># importing binary cipher
+</span><span class="kn">from</span> <span class="nn">hex</span> <span class="kn">import</span> <span class="n">hexadecimal</span> <span class="c1"># importing hexadecimal cipher
+</span><span class="kn">from</span> <span class="nn">aiprediction</span> <span class="kn">import</span> <span class="n">aiprediction</span> <span class="c1"># importing the ai prediciton class
+</span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+
+<span class="c1"># Initialize the SQLAlchemy object to work with the Flask app instance
+# db.init_app(app)
+</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>  <span class="c1"># catch for URL not found
+</span><span class="k">def</span> <span class="nf">page_not_found</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="c1"># note that we set the 404 status explicitly
+</span>    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">'404.html'</span><span class="p">),</span> <span class="mi">404</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>  <span class="c1"># connects default URL to index() function
+</span><span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/table/'</span><span class="p">)</span>  <span class="c1"># connects /stub/ URL to stub() function
+</span><span class="k">def</span> <span class="nf">table</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"table.html"</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/caesarencrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">caesarencrypt</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>  <span class="c1"># getting the text
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">gen</span><span class="o">=</span><span class="n">gn</span><span class="p">()</span>  <span class="c1"># creating api random generator class
+</span>    <span class="n">value</span><span class="o">=</span><span class="n">gen</span><span class="p">.</span><span class="n">getrandom</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># getting random number
+</span>    <span class="n">cipher1</span><span class="o">=</span><span class="n">c1</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">),</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">encrypted</span> <span class="o">=</span> <span class="n">cipher1</span><span class="p">.</span><span class="n">encrypt</span><span class="p">()</span> <span class="c1"># encrypting with ceasar cipher
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">encrypted</span><span class="p">))</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/morseencrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">morseencrypt</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span>  <span class="c1"># getting the text
+</span>    <span class="n">morseobject</span> <span class="o">=</span> <span class="n">morse</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># creating morse object
+</span>    <span class="n">encrypted</span> <span class="o">=</span> <span class="n">morseobject</span><span class="p">.</span><span class="n">encrypt</span><span class="p">()</span> <span class="c1"># encrypting with morse code
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">encrypted</span><span class="p">))</span> <span class="c1"># outputting morse encrypted ode
+</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/binaryencrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">binaryencrypt</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span> <span class="c1"># getting the text
+</span>    <span class="nb">bin</span><span class="o">=</span><span class="n">binary</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">encrypted</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">.</span><span class="n">encrypt</span><span class="p">()</span> <span class="c1"># encrypting with binary cipher
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">encrypted</span><span class="p">))</span> <span class="c1"># returning the encrypted value
+</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/hexencrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">hexencrypt</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span> <span class="c1"># getting textbox words
+</span>    <span class="nb">hex</span><span class="o">=</span><span class="n">hexadecimal</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># creating hexadecimal object
+</span>    <span class="n">encrypted</span><span class="o">=</span><span class="nb">hex</span><span class="p">.</span><span class="n">encrypt</span><span class="p">()</span> <span class="c1"># encryptihg with hexadecimal cipher
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">encrypted</span><span class="p">))</span> <span class="c1"># outputting string
+</span>
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/subencrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">subencrypt</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span> <span class="c1"># getting the text
+</span>    <span class="n">gen</span><span class="o">=</span><span class="n">gn</span><span class="p">()</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">gen</span><span class="p">.</span><span class="n">getrandom</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># getting random number from api
+</span>    <span class="n">sub</span><span class="o">=</span><span class="n">subencrypt</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">encrypted</span> <span class="o">=</span> <span class="n">sub</span><span class="p">.</span><span class="n">encrypt</span><span class="p">()</span> <span class="c1"># substitution cipher
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">encrypted</span><span class="p">))</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/rsaencrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">rsa</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span> <span class="c1"># getting text
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">'here'</span><span class="p">)</span>
+    <span class="n">rsaobj</span><span class="o">=</span><span class="n">RSA</span><span class="p">()</span>
+    <span class="n">rsa</span> <span class="o">=</span> <span class="n">RSA</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">2048</span><span class="p">)</span> <span class="c1"># initializing the RSA object
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"Created Object"</span><span class="p">)</span>
+    <span class="n">plaintext</span> <span class="o">=</span> <span class="n">text</span>
+    <span class="n">plaintext</span> <span class="o">=</span> <span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">plaintext</span><span class="p">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">'big'</span><span class="p">)</span> <span class="c1"># setup code
+</span>
+    <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">rsa</span><span class="p">.</span><span class="n">rsa_encrypt</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span> <span class="c1"># encrypting with rsa
+</span>    
+    <span class="k">print</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">))</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/decrypt"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">decrypt</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"text"</span><span class="p">)</span> <span class="c1"># getting text
+</span>    <span class="n">output</span><span class="o">=</span><span class="s">""</span>
+    <span class="n">predictor</span><span class="o">=</span><span class="n">aiprediction</span><span class="p">()</span>
+    <span class="n">value</span><span class="o">=</span><span class="n">predictor</span><span class="p">.</span><span class="n">pred</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># Predicting cipher used for encryption
+</span>    <span class="n">eng</span><span class="o">=</span><span class="n">aienglishprediction</span><span class="p">()</span> <span class="c1"># Creator the english checker object
+</span>    <span class="k">if</span><span class="p">(</span><span class="n">value</span><span class="o">==</span><span class="s">"binary"</span><span class="p">):</span> <span class="c1"># checking for binary cipher
+</span>        <span class="nb">object</span><span class="o">=</span><span class="n">binary</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">=</span><span class="nb">object</span><span class="p">.</span><span class="n">decrypt</span><span class="p">()</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">value</span><span class="o">==</span><span class="s">"hexadecimal"</span><span class="p">):</span> <span class="c1"># checking for hexadecimal cipher
+</span>        <span class="nb">object</span><span class="o">=</span><span class="n">hexadecimal</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">=</span> <span class="nb">object</span><span class="p">.</span><span class="n">decrypt</span><span class="p">()</span>
+    <span class="k">elif</span><span class="p">(</span><span class="n">value</span><span class="o">==</span><span class="s">"morse"</span><span class="p">):</span> <span class="c1"># checking for morse cipher
+</span>        <span class="nb">object</span><span class="o">=</span><span class="n">morse</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">=</span> <span class="nb">object</span><span class="p">.</span><span class="n">decrypt</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>  
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">27</span><span class="p">):</span> <span class="c1"># going through all possibly keys(brute forcing)
+</span>            <span class="n">eng</span><span class="o">=</span><span class="n">aienglishprediction</span><span class="p">()</span> <span class="c1"># creating an object of the ai class
+</span>            <span class="n">objecter</span><span class="o">=</span><span class="n">c1</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">text</span><span class="p">)</span> 
+            <span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s">"ceasar"</span><span class="p">:</span> <span class="c1"># checking which cipher
+</span>                <span class="n">objecter</span> <span class="o">=</span> <span class="n">c1</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span> <span class="c1"># creating object for ceasar
+</span>            <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s">"substitution"</span><span class="p">:</span>
+                <span class="n">objecter</span> <span class="o">=</span> <span class="n">c2</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span> <span class="c1"># creating object for substitution
+</span>            <span class="k">if</span> <span class="n">eng</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">objecter</span><span class="p">.</span><span class="n">decrypt</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># decrypting and seeing if it's close to english
+</span>                <span class="n">output</span><span class="o">=</span> <span class="n">objecter</span><span class="p">.</span><span class="n">decrypt</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output</span><span class="p">))</span> <span class="c1"># returning the output
+</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    
+    <span class="c1"># change name for testing
+</span>    <span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+    <span class="n">cors</span> <span class="o">=</span> <span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s">"8080"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h1 id="3rd-key-commit">3rd Key Commit</h1>
+<p>In this file I worked on most of this but the commit I will focus on will be in the decrypt function in which I first classify the algorithim used for encryption with the AI. Then if it is a key-based cipher I Brute force all of the keys and check using AI if the key is the correct one and if so I return the decrypted text. This was essential for the decrpytion functionality of our website.</p>
+
+  </div><a class="u-url" href="/student/2023/11/05/keycommits_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

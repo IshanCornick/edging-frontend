@@ -1,0 +1,762 @@
+<h1 id="jwt-implimentation">JWT Implimentation</h1>
+
+<p><img src="https://files.catbox.moe/t69vm3.png" alt="JWT" /></p>
+
+<h2 id="what-is-a-jwt-json-web-token">What is a JWT (JSON Web Token)?</h2>
+
+<p>JSON Web Tokens (JWT) serve as a secure means of transmitting information in JSON format, providing a way to establish trust between different parties in a web application.</p>
+<ul>
+  <li>Typically used to transmit information about an authenticated user and additional metadata (usernames, user ID, email, roles, etc.).</li>
+</ul>
+
+<h3 id="parts-of-a-jwt">Parts of a JWT:</h3>
+
+<p><img src="https://files.catbox.moe/19taua.png" alt="Parts" /></p>
+
+<p>Each section is divided by a dot</p>
+<ul>
+  <li>Header (red): Consists of two parts, how the JWT is encoded, such as the type of token (JWT) and the signing algorithm being used.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="c1"># For example:
+</span>  <span class="s">"alg"</span><span class="p">:</span> <span class="s">"HS256"</span><span class="p">,</span>
+  <span class="s">"typ"</span><span class="p">:</span> <span class="s">"JWT"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Payload (purple): Contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims: registered, public, and private claims.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="c1"># For Example:
+</span>  <span class="s">"sub"</span><span class="p">:</span> <span class="s">"1234567890"</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"John Doe"</span><span class="p">,</span>
+  <span class="s">"admin"</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Signature (teal): Created by combining the encoded header, encoded payload, and a secret (or key) using the specified algorithm. This signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn’t changed along the way.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Using the HMAC SHA256 algorithm the signature will be created as such:
+</span><span class="n">HMACSHA256</span><span class="p">(</span>
+  <span class="n">base64UrlEncode</span><span class="p">(</span><span class="n">header</span><span class="p">)</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span>
+  <span class="n">base64UrlEncode</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span>
+  <span class="n">secret</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="hmac-and-rsa-or-ecdsa-keys">HMAC and RSA or ECDSA Keys:</h3>
+
+<p>Used for signing JWT tokens</p>
+<ul>
+  <li>HMAC Algorithm (Secret Key):
+    <ul>
+      <li>HMAC (Hash-based Message Authentication Code)</li>
+      <li>A secret key is used to both create and verify the signature.</li>
+      <li>The issuer (who creates the JWT) uses a secret key and a hashing algorithm to create a signature by combining the encoded header and payload.</li>
+      <li>The recipient (who validates the JWT) uses the same secret key to independently calculate the signature and verify that it matches the one provided in the JWT.</li>
+      <li>Symmetric key solution: same key used for signing and verification</li>
+    </ul>
+  </li>
+  <li>RSA or ECDSA (Public/Private Key Pair):
+    <ul>
+      <li>RSA (Rivest–Shamir–Adleman) or ECDSA (Elliptic Curve Digital Signature Algorithm)</li>
+      <li>A pair of keys is used: a private key for signing and a corresponding public key for verification.</li>
+      <li>The issuer signs the JWT using their private key, and the signature is included in the JWT.</li>
+      <li>The recipient, who wants to verify the JWT, uses the public key associated with the issuer to check the signature’s validity.</li>
+      <li>Asymmetric key solution: private key is kept secret, and only the public key is shared.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="rest-apis-and-json-web-tokens">Rest APIs and JSON Web Tokens</h2>
+
+<h3 id="rest-apis">Rest APIs:</h3>
+
+<p><img src="https://files.catbox.moe/mc4jvz.png" alt="JWT" /></p>
+
+<ul>
+  <li>REST (Representational State Transfer) API (Application Programming Interface)</li>
+  <li>Architectural style for designing networked applications</li>
+  <li>Set of rules and conventions for building and interacting with web services that adhere to the principles of REST.</li>
+</ul>
+
+<p>Principals of REST-</p>
+<ul>
+  <li>Statelessness: Each request from a client to a server must contain all the information needed to understand and fulfill the request. The server should not store any information about the client’s state between requests. This makes the system scalable and easy to maintain.</li>
+  <li>Client-Server Architecture: The client and server are separate entities that communicate over a network. The client is responsible for the user interface and user experience, while the server is responsible for processing requests, managing resources, and handling business logic.</li>
+  <li>Uniform Interface: RESTful APIs have a uniform and consistent interface, which simplifies the architecture and promotes a clear separation of concerns. The uniform interface is defined by several constraints, including resource identification through URIs (Uniform Resource Identifiers), resource manipulation through representations, and self-descriptive messages.</li>
+  <li>Representation: Resources can have multiple representations, such as JSON or XML, which can be selected based on the client’s needs or capabilities. The representation contains the current state of the resource.</li>
+</ul>
+
+<h3 id="rest-apis-and-jwt">REST APIs and JWT:</h3>
+
+<p>A Java Web Token (JWT) is often used in the context of RESTful APIs to secure and authenticate communication between clients and servers.</p>
+<ul>
+  <li>Authentication and Authorization: When a client makes a request to a RESTful API, the server may need to verify the identity of the client and determine whether the client has the necessary permissions to perform the requested operation. JWTs can be used to securely transmit authentication information (such as user identity and roles) between the client and server.</li>
+  <li>Stateless Communication: RESTful APIs typically follow the stateless constraint, meaning that each request from the client to the server should contain all the information needed to understand and fulfill the request. JWTs provide a way to include authentication and authorization information directly within the token, eliminating the need for the server to store session state.</li>
+  <li>Token-Based Authentication: Instead of relying on sessions and cookies, which are commonly used in traditional web applications, JWTs allow for token-based authentication. When a user logs in, the server issues a JWT containing relevant user information and a signature to ensure its integrity. The client then includes this token in the headers of subsequent requests, allowing the server to authenticate and authorize the user.</li>
+  <li>Secure Transmission: JWTs can be signed and, optionally, encrypted, providing a secure way to transmit information between the client and server. The server can verify the integrity of the token by checking its signature, ensuring that the information it contains has not been tampered with.</li>
+</ul>
+
+<h2 id="implimenting-jwt-in-flask-using-pyjwt">Implimenting JWT in Flask Using PyJWT</h2>
+
+<h4 id="1-add-pyjwt-to-requirementstxt">1) Add PyJWT to requirements.txt</h4>
+
+<p>PyJWT will be used to encode and decode JWT tokens
+Flask_SqlAlchemy
+Flask_Migrate
+Flask_Restful
+Flask_Cors
+PyJWT</p>
+<h4 id="2-add-a-secret-key-as-app-config">2) Add a Secret Key as App Config</h4>
+
+<p>Modify the app.config [‘SECRET_KEY’] to try and get secret key for encoding and decoding the JWT from the variable SECRET_KEY. It defaults to “SECRET_KEY” for the key.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">flask_sqlalchemy</span> <span class="kn">import</span> <span class="n">SQLAlchemy</span>
+<span class="kn">from</span> <span class="nn">flask_migrate</span> <span class="kn">import</span> <span class="n">Migrate</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="s">"""
+These objects can be used throughout project.
+"""</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span> <span class="o">@@</span>
+<span class="n">dbURI</span> <span class="o">=</span> <span class="s">'sqlite:///volumes/sqlite.db'</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_TRACK_MODIFICATIONS'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SQLALCHEMY_DATABASE_URI'</span><span class="p">]</span> <span class="o">=</span> <span class="n">dbURI</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'SECRET_KEY'</span><span class="p">)</span> <span class="ow">or</span> <span class="s">'SECRET_KEY'</span>
+<span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">'SECRET_KEY'</span><span class="p">]</span> <span class="o">=</span> <span class="n">SECRET_KEY</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SQLAlchemy</span><span class="p">()</span>
+<span class="n">Migrate</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">db</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="3-migration-script-hashes-passwords-and-new-valid-hash-method">3) Migration Script Hashes Passwords and New Valid Hash Method</h4>
+
+<p>We need to prevent storing passwords in plaintext (for security reasons) so we need to hash passwords when initializing users in the database (in migration sript). All the user set_password methods are set to the same hash method.</p>
+
+<h5 id="migration-script-hashes-passwords">Migration Script Hashes Passwords</h5>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">op</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="n">sa</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span>
+
+
+<span class="c1"># revision identifiers, used by Alembic.
+</span><span class="n">revision</span> <span class="o">=</span> <span class="s">'5ac11951f352'</span>
+<span class="n">down_revision</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">branch_labels</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">depends_on</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">def</span> <span class="nf">upgrade</span><span class="p">():</span>
+    <span class="c1"># ### commands auto generated by Alembic - please adjust! ###
+</span>    <span class="n">players_table</span> <span class="o">=</span> <span class="n">op</span><span class="p">.</span><span class="n">create_table</span><span class="p">(</span><span class="s">'players'</span><span class="p">,</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'id'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_name'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_uid'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_password'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_tokens'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">PrimaryKeyConstraint</span><span class="p">(</span><span class="s">'id'</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">'_uid'</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">users_table</span> <span class="o">=</span> <span class="n">op</span><span class="p">.</span><span class="n">create_table</span><span class="p">(</span><span class="s">'users'</span><span class="p">,</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'id'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_name'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_uid'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_password'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'_dob'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Date</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">PrimaryKeyConstraint</span><span class="p">(</span><span class="s">'id'</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">UniqueConstraint</span><span class="p">(</span><span class="s">'_uid'</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">posts_table</span> <span class="o">=</span> <span class="n">op</span><span class="p">.</span><span class="n">create_table</span><span class="p">(</span><span class="s">'posts'</span><span class="p">,</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'id'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'note'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Text</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'image'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">Column</span><span class="p">(</span><span class="s">'userID'</span><span class="p">,</span> <span class="n">sa</span><span class="p">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">ForeignKeyConstraint</span><span class="p">([</span><span class="s">'userID'</span><span class="p">],</span> <span class="p">[</span><span class="s">'users.id'</span><span class="p">],</span> <span class="p">),</span>
+    <span class="n">sa</span><span class="p">.</span><span class="n">PrimaryKeyConstraint</span><span class="p">(</span><span class="s">'id'</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">op</span><span class="p">.</span><span class="n">bulk_insert</span><span class="p">(</span><span class="n">players_table</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Azeem Khan"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"azeemK"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123qwerty"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_tokens"</span><span class="p">:</span> <span class="mi">45</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Ahad Biabani"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"ahadB"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123qwerty"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_tokens"</span><span class="p">:</span> <span class="mi">41</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Akshat Parikh"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"akshatP"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123qwerty"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_tokens"</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Josh Williams"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"joshW"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123qwerty"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_tokens"</span><span class="p">:</span> <span class="mi">38</span><span class="p">},</span>
+    <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">op</span><span class="p">.</span><span class="n">bulk_insert</span><span class="p">(</span><span class="n">users_table</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Thomas Edison"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"toby"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123toby"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_dob"</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">1847</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Nicholas Tesla"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"niko"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123niko"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_dob"</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">1856</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Alexander Graham Bell"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"lex"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123qwerty"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_dob"</span><span class="p">:</span> <span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">()},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">'_name'</span><span class="p">:</span> <span class="s">"Grace Hopper"</span><span class="p">,</span>
+        <span class="s">'_uid'</span><span class="p">:</span> <span class="s">"hop"</span><span class="p">,</span>
+        <span class="s">'_password'</span><span class="p">:</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">"123hop"</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="s">"_dob"</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">1906</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">)},</span>
+    <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">op</span><span class="p">.</span><span class="n">bulk_insert</span><span class="p">(</span><span class="n">posts_table</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">'note'</span><span class="p">:</span> <span class="s">"#### Thomas Edison Test Note ####"</span><span class="p">,</span>
+        <span class="s">'image'</span><span class="p">:</span> <span class="s">"ncs_logo.png"</span><span class="p">,</span>
+        <span class="s">'userID'</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">'note'</span><span class="p">:</span> <span class="s">"#### Nicholas Tesla Test Note ####"</span><span class="p">,</span>
+        <span class="s">'image'</span><span class="p">:</span> <span class="s">"ncs_logo.png"</span><span class="p">,</span>
+        <span class="s">'userID'</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s">'note'</span><span class="p">:</span> <span class="s">"#### Alexander Graham Bell Test Note ####"</span><span class="p">,</span>
+        <span class="s">'image'</span><span class="p">:</span> <span class="s">"ncs_logo.png"</span><span class="p">,</span>
+        <span class="s">'userID'</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s">'id'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">'note'</span><span class="p">:</span> <span class="s">"#### Grace Hopper Test Note ####"</span><span class="p">,</span>
+        <span class="s">'image'</span><span class="p">:</span> <span class="s">"ncs_logo.png"</span><span class="p">,</span>
+        <span class="s">'userID'</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="c1"># ### end Alembic commands ###
+</span><span class="k">def</span> <span class="nf">downgrade</span><span class="p">():</span>
+    <span class="c1"># ### commands auto generated by Alembic - please adjust! ###
+</span>    <span class="n">op</span><span class="p">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s">'posts'</span><span class="p">)</span>
+    <span class="n">op</span><span class="p">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s">'users'</span><span class="p">)</span>
+    <span class="n">op</span><span class="p">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s">'players'</span><span class="p">)</span>
+    <span class="c1"># ### end Alembic commands ###
+</span></code></pre></div></div>
+
+<h5 id="new-valid-hash-method">New Valid Hash Method</h5>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># update password, this is conventional setter
+</span>    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="s">"""Create a hashed password."""</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_password</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="s">"pbkdf2:sha256"</span><span class="p">,</span> <span class="n">salt_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># check password parameter versus stored/encrypted password
+</span>    <span class="k">def</span> <span class="nf">is_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">password</span><span class="o">==</span><span class="n">password</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">"correct password"</span>
+        <span class="k">return</span> <span class="s">"wrong password"</span>
+</code></pre></div></div>
+
+<h4 id="4-checking-jwt-token-and-authentication">4) Checking JWT Token and Authentication</h4>
+
+<p>This authentication middleware functions as a checkpoint for all incoming requests to the web server before reaching the API. Its primary task is to check for the presence of a JWT cookie in the incoming request. In cases where the cookie is absent, the middleware responds with a 401 Unauthorized Error, indicating that the required token is missing. If a cookie is found, the middleware proceeds to decode the token, extracting the user ID (uid). Following this, it validates the existence of a user associated with that ID.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">jwt</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span><span class="p">,</span> <span class="n">abort</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">current_app</span>
+<span class="kn">from</span> <span class="nn">model.users</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="k">def</span> <span class="nf">token_required</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">cookies</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"jwt"</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">token</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s">"message"</span><span class="p">:</span> <span class="s">"Authentication Token is missing!"</span><span class="p">,</span>
+                <span class="s">"data"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                <span class="s">"error"</span><span class="p">:</span> <span class="s">"Unauthorized"</span>
+            <span class="p">},</span> <span class="mi">401</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">jwt</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">current_app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">"SECRET_KEY"</span><span class="p">],</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s">"HS256"</span><span class="p">])</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">"_uid"</span><span class="p">])</span>
+            <span class="n">current_user</span><span class="o">=</span><span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">_uid</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s">"_uid"</span><span class="p">]).</span><span class="n">first</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">current_user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span>
+                <span class="s">"message"</span><span class="p">:</span> <span class="s">"Invalid Authentication token!"</span><span class="p">,</span>
+                <span class="s">"data"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                <span class="s">"error"</span><span class="p">:</span> <span class="s">"Unauthorized"</span>
+            <span class="p">},</span> <span class="mi">401</span>
+        <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s">"message"</span><span class="p">:</span> <span class="s">"Something went wrong"</span><span class="p">,</span>
+                <span class="s">"data"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                <span class="s">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="p">},</span> <span class="mi">500</span>
+
+        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">decorated</span>
+</code></pre></div></div>
+
+<h4 id="5-authenticate-returns-from-generaated-jwt-tokens">5) Authenticate Returns from Generaated JWT Tokens</h4>
+
+<p>The endpoint /api/users/authenticate now provides a JWT token based on the request’s JSON data, which includes the uid and password. Several checks are performed, ensuring the presence of the request body, existence of the uid, presence of a user with the specified uid, and correctness of the provided password. If all checks pass, the uid is encoded into a JWT token, which is then returned as a cookie.</p>
+
+<p>Additionally, the @token_required decorator is applied to the get and post methods so that only authenticated users can reach and access resources.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">json</span><span class="p">,</span> <span class="n">jwt</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">current_app</span><span class="p">,</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">flask_restful</span> <span class="kn">import</span> <span class="n">Api</span><span class="p">,</span> <span class="n">Resource</span> <span class="c1"># used for REST API building
+</span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">auth_middleware</span> <span class="kn">import</span> <span class="n">token_required</span>
+
+<span class="kn">from</span> <span class="nn">model.users</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="n">user_api</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s">'user_api'</span><span class="p">,</span> <span class="n">__name__</span><span class="p">,</span>
+                   <span class="n">url_prefix</span><span class="o">=</span><span class="s">'/api/users'</span><span class="p">)</span>
+<span class="c1"># API docs https://flask-restful.readthedocs.io/en/latest/api.html
+</span><span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">user_api</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">UserAPI</span><span class="p">:</span>        
+    <span class="k">class</span> <span class="nc">_CRUD</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>  <span class="c1"># User API operation for Create, Read.  THe Update, Delete methods need to be implemeented
+</span>        <span class="o">@</span><span class="n">token_required</span>
+        <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_user</span><span class="p">):</span> <span class="c1"># Create method
+</span>            <span class="s">''' Read data for json body '''</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
+
+            <span class="s">''' Avoid garbage in, error checking '''</span>
+            <span class="c1"># validate name
+</span>            <span class="n">name</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'name'</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Name is missing, or is less than 2 characters'</span><span class="p">},</span> <span class="mi">400</span>
+            <span class="c1"># validate uid
+</span>            <span class="n">uid</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'uid'</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">uid</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">uid</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'User ID is missing, or is less than 2 characters'</span><span class="p">},</span> <span class="mi">400</span>
+            <span class="c1"># look for password and dob
+</span>            <span class="n">password</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'password'</span><span class="p">)</span>
+            <span class="n">dob</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'dob'</span><span class="p">)</span>
+            <span class="s">''' #1: Key code block, setup USER OBJECT '''</span>
+            <span class="n">uo</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> 
+                      <span class="n">uid</span><span class="o">=</span><span class="n">uid</span><span class="p">)</span>
+            
+            <span class="s">''' Additional garbage error checking '''</span>
+            <span class="c1"># set password if provided
+</span>            <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">uo</span><span class="p">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+            <span class="c1"># convert to date type
+</span>            <span class="k">if</span> <span class="n">dob</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">uo</span><span class="p">.</span><span class="n">dob</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">dob</span><span class="p">,</span> <span class="s">'%Y-%m-%d'</span><span class="p">).</span><span class="n">date</span><span class="p">()</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Date of birth format error </span><span class="si">{</span><span class="n">dob</span><span class="si">}</span><span class="s">, must be mm-dd-yyyy'</span><span class="p">},</span> <span class="mi">400</span>
+            
+            <span class="s">''' #2: Key Code block to add user to database '''</span>
+            <span class="c1"># create user in database
+</span>            <span class="n">user</span> <span class="o">=</span> <span class="n">uo</span><span class="p">.</span><span class="n">create</span><span class="p">()</span>
+            <span class="c1"># success returns json of user
+</span>            <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="c1"># failure returns error
+</span>            <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'Processed </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">, either a format error or User ID </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s"> is duplicate'</span><span class="p">},</span> <span class="mi">400</span>
+        
+        <span class="o">@</span><span class="n">token_required</span>
+        <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_user</span><span class="p">):</span> <span class="c1"># Read Method
+</span>            <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="nb">all</span><span class="p">()</span>    <span class="c1"># read/extract all users from database
+</span>            <span class="n">json_ready</span> <span class="o">=</span> <span class="p">[</span><span class="n">user</span><span class="p">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]</span>  <span class="c1"># prepare output in json
+</span>            <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">json_ready</span><span class="p">)</span>  <span class="c1"># jsonify creates Flask response object, more specific to APIs than json.dumps
+</span>
+    <span class="k">class</span> <span class="nc">_Security</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">body</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">get_json</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">body</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">{</span>
+                        <span class="s">"message"</span><span class="p">:</span> <span class="s">"Please provide user details"</span><span class="p">,</span>
+                        <span class="s">"data"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                        <span class="s">"error"</span><span class="p">:</span> <span class="s">"Bad request"</span>
+                    <span class="p">},</span> <span class="mi">400</span>
+                <span class="s">''' Get Data '''</span>
+                <span class="n">uid</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'uid'</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">uid</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="sa">f</span><span class="s">'User ID is missing'</span><span class="p">},</span> <span class="mi">400</span>
+                <span class="n">password</span> <span class="o">=</span> <span class="n">body</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'password'</span><span class="p">)</span>
+
+                <span class="s">''' Find user '''</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">_uid</span><span class="o">=</span><span class="n">uid</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">_uid</span><span class="p">,</span><span class="n">user</span><span class="p">.</span><span class="n">_password</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">user</span><span class="p">.</span><span class="n">is_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="p">{</span><span class="s">'message'</span><span class="p">:</span> <span class="sa">f</span><span class="s">"Invalid user id or password"</span><span class="p">},</span> <span class="mi">400</span>
+                <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span>
+                            <span class="p">{</span><span class="s">"_uid"</span><span class="p">:</span> <span class="n">user</span><span class="p">.</span><span class="n">_uid</span><span class="p">},</span>
+                            <span class="n">current_app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">"SECRET_KEY"</span><span class="p">],</span>
+                            <span class="n">algorithm</span><span class="o">=</span><span class="s">"HS256"</span>
+                        <span class="p">)</span>
+                        <span class="n">resp</span> <span class="o">=</span> <span class="n">Response</span><span class="p">(</span><span class="s">"Authentication for %s successful"</span> <span class="o">%</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">_uid</span><span class="p">))</span>
+                        <span class="n">resp</span><span class="p">.</span><span class="n">set_cookie</span><span class="p">(</span><span class="s">"jwt"</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span>
+                                <span class="n">max_age</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+                                <span class="n">secure</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                <span class="n">httponly</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                <span class="n">path</span><span class="o">=</span><span class="s">'/'</span>
+                                <span class="c1"># domain="frontend.com"
+</span>                                <span class="p">)</span>
+                        <span class="k">return</span> <span class="n">resp</span>
+                    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="p">{</span>
+                            <span class="s">"error"</span><span class="p">:</span> <span class="s">"Something went wrong"</span><span class="p">,</span>
+                            <span class="s">"message"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                        <span class="p">},</span> <span class="mi">500</span>
+                <span class="k">return</span> <span class="p">{</span>
+                    <span class="s">"message"</span><span class="p">:</span> <span class="s">"Error fetching auth token!, invalid email or password"</span><span class="p">,</span>
+                    <span class="s">"data"</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                    <span class="s">"error"</span><span class="p">:</span> <span class="s">"Unauthorized"</span>
+                <span class="p">},</span>
+            <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span>
+                        <span class="s">"message"</span><span class="p">:</span> <span class="s">"Something went wrong!"</span><span class="p">,</span>
+                        <span class="s">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+                        <span class="s">"data"</span><span class="p">:</span> <span class="bp">None</span>
+                <span class="p">},</span> <span class="mi">500</span>
+
+
+
+    <span class="c1"># building RESTapi endpoint
+</span>    <span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">_CRUD</span><span class="p">,</span> <span class="s">'/'</span><span class="p">)</span>
+    <span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">_Security</span><span class="p">,</span> <span class="s">'/authenticate'</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<h2 id="implimenting-jwt-in-flask-using-flask-jwt-extended">Implimenting JWT in Flask Using Flask-JWT-Extended</h2>
+
+<h4 id="1-install-flask-jwt-extended">1) Install Flask-JWT-Extended</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">Flask</span><span class="o">-</span><span class="n">JWT</span><span class="o">-</span><span class="n">Extended</span>
+</code></pre></div></div>
+
+<h4 id="2-include-jwt-library-in-flask-app-setup">2) Include JWT Library in Flask App Setup</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">JWTManager</span>
+
+<span class="c1"># You don't have to add this again if you already have it.
+</span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c1"># Setup the Flask-JWT-Extended extension
+</span><span class="n">app</span><span class="p">.</span><span class="n">config</span><span class="p">[</span><span class="s">"JWT_SECRET_KEY"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"SECRET_KEY"</span>  <span class="c1"># Remember to change "secret" to a more complex key
+</span><span class="n">jwt</span> <span class="o">=</span> <span class="n">JWTManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="3-create-an-endpoint-for-generating-tokens">3) Create an Endpoint for Generating Tokens</h4>
+
+<p>Using POST because it is creating tokens (POST is for creation)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">POST</span> <span class="o">/</span><span class="n">token</span>
+<span class="n">Content</span><span class="o">-</span><span class="nb">type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="n">Body</span><span class="p">:</span>
+<span class="p">{</span>
+     <span class="s">"username"</span><span class="p">:</span> <span class="s">"alesanchezr"</span><span class="p">,</span>
+     <span class="s">"password"</span><span class="p">:</span> <span class="s">"12341234"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">create_access_token</span>
+
+<span class="c1"># Create a route to authenticate your users and return JWT Token
+# The create_access_token() function is used to actually generate the JWT
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/token"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">create_token</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"username"</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"password"</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+    <span class="c1"># Query your database for username and password
+</span>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># The user was not found on the database
+</span>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s">"msg"</span><span class="p">:</span> <span class="s">"Bad username or password"</span><span class="p">}),</span> <span class="mi">401</span>
+    
+    <span class="c1"># Create a new token with the user id inside
+</span>    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span><span class="n">identity</span><span class="o">=</span><span class="n">user</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span> <span class="s">"token"</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s">"user_id"</span><span class="p">:</span> <span class="n">user</span><span class="p">.</span><span class="nb">id</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<h4 id="4-use-jwt_required-decorator-on-private-routes">4) Use @jwt_required() Decorator on Private Routes</h4>
+
+<p>Endpoints that require authorization (private endpoints) should use the @jwt_required() decorator. You can retrieve valid, authenticated user information using the get_jwt_identity function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask_jwt_extended</span> <span class="kn">import</span> <span class="n">jwt_required</span><span class="p">,</span> <span class="n">get_jwt_identity</span>
+
+<span class="c1"># Protect a route with jwt_required, which will kick out requests without a valid JWT
+</span><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">"/protected"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">])</span>
+<span class="o">@</span><span class="n">jwt_required</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
+    <span class="c1"># Access the identity of the current user with get_jwt_identity
+</span>    <span class="n">current_user_id</span> <span class="o">=</span> <span class="n">get_jwt_identity</span><span class="p">()</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">current_user_id</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s">"id"</span><span class="p">:</span> <span class="n">user</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">"username"</span><span class="p">:</span> <span class="n">user</span><span class="p">.</span><span class="n">username</span> <span class="p">}),</span> <span class="mi">200</span>
+</code></pre></div></div>
+
+<h2 id="implimenting-jwt-in-front-end">Implimenting JWT in Front-End</h2>
+
+<h4 id="1-create-a-new-token">1) Create a New Token</h4>
+
+<p>Based on earlier endpoints, we have to POST /token with username + password information in request body.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">const</span> <span class="n">login</span> <span class="o">=</span> <span class="k">async</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="n">const</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch</span><span class="p">(</span><span class="sb">`https://your_api.com/token`</span><span class="p">,</span> <span class="p">{</span> 
+          <span class="n">method</span><span class="p">:</span> <span class="s">"POST"</span><span class="p">,</span>
+          <span class="n">headers</span><span class="p">:</span> <span class="p">{</span> <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span> <span class="p">},</span>
+          <span class="n">body</span><span class="p">:</span> <span class="n">JSON</span><span class="p">.</span><span class="n">stringify</span><span class="p">({</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span> <span class="p">})</span> 
+     <span class="p">})</span>
+
+     <span class="k">if</span><span class="p">(</span><span class="err">!</span><span class="n">resp</span><span class="p">.</span><span class="n">ok</span><span class="p">)</span> <span class="n">throw</span> <span class="n">Error</span><span class="p">(</span><span class="s">"There was a problem in the login request"</span><span class="p">)</span>
+
+     <span class="k">if</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">status</span> <span class="o">===</span> <span class="mi">401</span><span class="p">){</span>
+          <span class="n">throw</span><span class="p">(</span><span class="s">"Invalid credentials"</span><span class="p">)</span>
+     <span class="p">}</span>
+     <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">status</span> <span class="o">===</span> <span class="mi">400</span><span class="p">){</span>
+          <span class="n">throw</span> <span class="p">(</span><span class="s">"Invalid email or password format"</span><span class="p">)</span>
+     <span class="p">}</span>
+     <span class="n">const</span> <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">resp</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+     <span class="o">//</span> <span class="n">Save</span> <span class="n">your</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">localStorage</span>
+     <span class="o">//</span> <span class="n">Also</span> <span class="n">you</span> <span class="n">should</span> <span class="nb">set</span> <span class="n">your</span> <span class="n">user</span> <span class="n">into</span> <span class="n">the</span> <span class="n">store</span> <span class="n">using</span> <span class="n">the</span> <span class="n">setItem</span> <span class="n">function</span>
+     <span class="n">localStorage</span><span class="p">.</span><span class="n">setItem</span><span class="p">(</span><span class="s">"jwt-token"</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="n">token</span><span class="p">);</span>
+
+     <span class="k">return</span> <span class="n">data</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="2-retrieving-information">2) Retrieving Information</h4>
+
+<p>Now, lets say I’ve logged in to the front-end application and I want to retrieve sensitive data:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span> <span class="n">Assuming</span> <span class="s">"/protected"</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">private</span> <span class="n">endpoint</span>
+<span class="n">const</span> <span class="n">getMyTasks</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+     <span class="o">//</span> <span class="n">Retrieve</span> <span class="n">token</span> <span class="k">from</span> <span class="n">localStorage</span>
+     <span class="n">const</span> <span class="n">token</span> <span class="o">=</span> <span class="n">localStorage</span><span class="p">.</span><span class="n">getItem</span><span class="p">(</span><span class="s">'jwt-token'</span><span class="p">);</span>
+
+     <span class="n">const</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch</span><span class="p">(</span><span class="sb">`https://your_api.com/protected`</span><span class="p">,</span> <span class="p">{</span>
+        <span class="n">method</span><span class="p">:</span> <span class="s">'GET'</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="p">{</span> 
+          <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+          <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer '</span> <span class="o">+</span> <span class="n">token</span> <span class="o">//</span> <span class="err">⬅⬅⬅</span> <span class="n">authorization</span> <span class="n">token</span>
+        <span class="p">}</span> 
+     <span class="p">});</span>
+
+     <span class="k">if</span><span class="p">(</span><span class="err">!</span><span class="n">resp</span><span class="p">.</span><span class="n">ok</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">throw</span> <span class="n">Error</span><span class="p">(</span><span class="s">"There was a problem in the login request"</span><span class="p">)</span>
+     <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">status</span> <span class="o">===</span> <span class="mi">403</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">throw</span> <span class="n">Error</span><span class="p">(</span><span class="s">"Missing or invalid token"</span><span class="p">);</span>
+     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="n">throw</span> <span class="n">Error</span><span class="p">(</span><span class="s">"Unknown error"</span><span class="p">);</span>
+     <span class="p">}</span>
+
+     <span class="n">const</span> <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">resp</span><span class="p">.</span><span class="n">json</span><span class="p">();</span>
+     <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"This is the data you requested"</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+     <span class="k">return</span> <span class="n">data</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="cors-configuration">CORS Configuration:</h2>
+
+<p>Cross-Origin Resource Sharing (CORS) is a crucial aspect of web development, allowing or restricting requests from different origins. This configuration is essential to ensure that your Flask application can seamlessly handle requests from various sources, promoting security and compatibility.</p>
+
+<p>Change: Added CORS support for deployed and local runs.</p>
+<ul>
+  <li>Allows Flask to handle requests from different origins. The inclusion of supports_credentials=True ensures that credentials, such as cookies, can be sent and received.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cors</span> <span class="o">=</span> <span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">supports_credentials</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="dynamic-allowed-origins">Dynamic Allowed Origins:</h3>
+
+<p>The concept of “Dynamic Allowed Origins” refers to the ability to dynamically set the allowed origins for Cross-Origin Resource Sharing (CORS) based on the incoming request’s ‘Origin’ header. In CORS, the ‘Origin’ header indicates the origin (domain) of the requesting client.</p>
+
+<p>Change: A before_request hook is implemented to dynamically set the allowed origin based on the incoming request’s ‘Origin’ header.</p>
+<ul>
+  <li>Helps prevent unauthorized cross-origin requests by allowing only specified origins.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">before_request</span>
+<span class="k">def</span> <span class="nf">before_request</span><span class="p">():</span>
+    <span class="n">allowed_origin</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'Origin'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">allowed_origin</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'http://localhost:4100'</span><span class="p">,</span> <span class="s">'http://127.0.0.1:4100'</span><span class="p">,</span> <span class="s">'https://nighthawkcoders.github.io'</span><span class="p">]:</span>
+        <span class="n">cors</span><span class="p">.</span><span class="n">_origins</span> <span class="o">=</span> <span class="n">allowed_origin</span>
+</code></pre></div></div>
+
+<h3 id="same-site-attribute-in-set_cookie">Same Site Attribute in set_cookie:</h3>
+
+<p>The SameSite attribute in a cookie is a security feature that controls whether a cookie should be sent with cross-site requests. It is set within the Set-Cookie header when a server instructs a browser to store a cookie on the user’s device. The SameSite attribute helps mitigate certain types of cross-site request forgery (CSRF) attacks.</p>
+
+<p>Change: The SameSite attribute is set to ‘None’ in the set_cookie method to allow cross-site requests.</p>
+<ul>
+  <li>Allows for cookies to be sent with cross-site requests, especially when working with front-end applications hosted on different domains.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">urllib</span> <span class="kn">import</span> <span class="n">response</span>
+
+
+<span class="n">response</span><span class="p">.</span><span class="n">set_cookie</span><span class="p">(</span>
+    <span class="s">"jwt"</span><span class="p">,</span>
+    <span class="n">token</span><span class="p">,</span>
+    <span class="n">max_age</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+    <span class="n">secure</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">httponly</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s">'/'</span><span class="p">,</span>
+    <span class="n">samesite</span><span class="o">=</span><span class="s">'None'</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="nginx-preflighted-requests-configuration">Nginx Preflighted Requests Configuration:</h3>
+
+<p>The Nginx preflighted requests configuration is designed to handle preflighted requests. Preflighted requests are HTTP OPTIONS requests sent by the browser before the actual request to check whether the server will accept the actual request.</p>
+
+<p>Change: Nginx configuration is added to handle preflighted requests, ensuring that only the specified frontend server is allowed.</p>
+<ul>
+  <li>Includes headers necessary for proper CORS handling during preflight checks made by the browser, ensuring that only the designated frontend server is allowed for preflighted requests.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="err">$</span><span class="n">request_method</span> <span class="o">=</span> <span class="n">OPTIONS</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">add_header</span> <span class="s">"Access-Control-Allow-Credentials"</span> <span class="s">"true"</span> <span class="n">always</span><span class="p">;</span>
+    <span class="n">add_header</span> <span class="s">"Access-Control-Allow-Origin"</span>  <span class="s">"https://nighthawkcoders.github.io"</span> <span class="n">always</span><span class="p">;</span>
+    <span class="n">add_header</span> <span class="s">"Access-Control-Allow-Methods"</span> <span class="s">"GET, POST, PUT, OPTIONS, HEAD"</span> <span class="n">always</span><span class="p">;</span>
+    <span class="n">add_header</span> <span class="s">"Access-Control-Allow-MaxAge"</span> <span class="mi">600</span> <span class="n">always</span><span class="p">;</span>
+    <span class="n">add_header</span> <span class="s">"Access-Control-Allow-Headers"</span> <span class="s">"Authorization, Origin, X-Requested-With, Content-Type, Accept"</span> <span class="n">always</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">204</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="cookies">Cookies</h2>
+
+<p><img src="https://files.catbox.moe/yxzao5.png" alt="Cookie" /></p>
+
+<p>Cookies are small pieces of data stored on the user’s browser by website</p>
+<ul>
+  <li>Primarily used for session management, user authentication, and tracking user behavior.</li>
+  <li>Store authentication tokens to allow the user to stay authenticated on the server</li>
+  <li>Sent between the client (browser) and the server with each HTTP request, providing a way to maintain stateful information.</li>
+  <li>With each interaction, the server can store the user session, manage session info, and store user preferences</li>
+</ul>
+
+<h3 id="cookies-and-jwt">Cookies and JWT</h3>
+
+<p>Cookies can be used to store JWTs.</p>
+<ul>
+  <li>When a user logs in, the server can send a JWT as a cookie, and the browser will include the JWT in subsequent requests to the server.</li>
+  <li>Stateless authentication while still leveraging the benefits of cookies for managing sessions and user information.</li>
+</ul>
+
+<p>The process of maintaining tokens in cookies and transmitting them in HTTP requests involves several steps (we’ve gone over this earlier, but lets go through it again in the context of cookies):</p>
+
+<ol>
+  <li>Token Generation and Storage:
+    <ul>
+      <li>When a user logs in, the server generates a token (e.g., JWT - JSON Web Token) containing user information and possibly permissions.</li>
+      <li>This token is then stored in a cookie on the user’s device. Cookies are pieces of data sent from the server and stored on the client side.</li>
+    </ul>
+  </li>
+  <li>Cookie Storage and Retrieval:
+    <ul>
+      <li>The cookie is typically stored in the user’s browser. It includes attributes such as domain, path, expiration time, and the secure flag.</li>
+      <li>For subsequent requests, the browser automatically includes the relevant cookies in the HTTP headers.</li>
+    </ul>
+  </li>
+  <li>Transmission in HTTP Request:
+    <ul>
+      <li>When the user makes an HTTP request to the server (e.g., by navigating to a different page or sending an AJAX request), the browser includes the cookies associated with the domain in the request headers.</li>
+      <li>The server extracts the token from the cookie in the incoming HTTP request.</li>
+    </ul>
+  </li>
+  <li>Token Verification:
+    <ul>
+      <li>The server verifies the token to ensure its authenticity and integrity. This involves checking the signature in the case of JWT.</li>
+      <li>If the token is valid, the server can extract user information and use it to process the request.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="postman">Postman</h2>
+
+<p><img src="https://files.catbox.moe/dp76tr.webp" alt="Postman" /></p>
+
+<p>Postman serves as a valuable tool in the realm of computer science, specifically designed for testing and interacting with Application Programming Interfaces (APIs). Postman can be likened to a sophisticated testing environment that facilitates the exploration of API functionalities.</p>
+
+<p>Within Postman, users can craft and dispatch HTTP requests to APIs, allowing for a comprehensive examination of how different software components communicate and respond. This tool is instrumental in ensuring the seamless integration of APIs into software applications. Its intuitive interface provides a user-friendly platform to engage in the essential practice of testing and validating API behavior.</p>
+
+<h3 id="postman-and-jwt">Postman and JWT:</h3>
+
+<p>Postman allows you to include JWTs in your requests easily. Here’s different ways of how you can use Postman to send a request with a JWT:</p>
+
+<ol>
+  <li>Authorization Tab
+    <ul>
+      <li>Open your request in Postman.</li>
+      <li>Go to the “Authorization” tab.</li>
+      <li>Select “Bearer Token” from the “Type” dropdown.</li>
+      <li>Paste your JWT token in the “Token” field.</li>
+    </ul>
+  </li>
+  <li>Headers:
+    <ul>
+      <li>Enter the JWT in the headers manually using the “Headers” tab by adding a key-value pair like Authorization: Bearer YOUR_JWT_TOKEN.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>This way, Postman enables you to simulate API requests with JWTs, ensuring that your authentication mechanisms are working as expected. If everything is working as expected, you will recieve a status code in the 2xx range (e.g., 200 OK) which typically indicates success. If you do not recieve a 200 OK message, Postman will let you know what is wrong so you can catch errors in your code.</p>
+
+<h3 id="postman-and-cookies">Postman and Cookies:</h3>
+
+<p>Similar to JWT, Postman allows you to manage cookies as efficently. Here’s different ways you can work with cookies in Postman:</p>
+
+<ol>
+  <li>Cookies Tab:
+    <ul>
+      <li>Open your request in Postman.</li>
+      <li>Navigate to the “Cookies” tab.</li>
+      <li>Add the necessary cookies by providing the key-value pairs.</li>
+    </ul>
+  </li>
+  <li>Headers:
+    <ul>
+      <li>Cookies can also be included in the request headers manually.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="anatomy-of-python-flask-repo">Anatomy of Python Flask Repo</h2>
+<h3 id="teacher-flask-repo">(<a href="https://github.com/nighthawkcoders/flask_portfolio">Teacher Flask Repo</a>)</h3>
+
+<p><img src="https://files.catbox.moe/vqejur.png" alt="Part1" />
+<img src="https://files.catbox.moe/glrmpa.png" alt="Part1" /></p>
+
+<ul>
+  <li>main.py: The Python source file responsible for running, testing, and debugging your project. Its role is central to the execution of the entire project.</li>
+  <li>Dockerfile and docker-compose.yml: These files play a vital role in running and testing your project within a Docker container, providing a simulated deployment environment, such as on AWS. They are crucial to ensuring the consistent functionality of your project across diverse machines.</li>
+  <li>instances: Serving as the base location for data files meant to persist on the server, this directory retains files even after a web application restart. It stands apart from other files, which get recreated during restarts.</li>
+  <li>static: Positioned as the foundational storage for files intended to be cached and concealed by the web server, this directory commonly houses unchanging files like images or JavaScript files throughout web server execution.</li>
+  <li>api: Housing code that manages requests from external servers, this directory acts as the bridge connecting the external world to the logic and code within the rest of your project.</li>
+  <li>model: Within this directory, you’ll find files implementing backend functionality for various files in the api directory, such as direct interaction with the database.</li>
+  <li>templates: This section holds files and subdirectories crucial for supporting the home and error pages of your project’s site.</li>
+</ul>

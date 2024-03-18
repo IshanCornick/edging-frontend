@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Online Notepad | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Online Notepad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A way to Store Notes" />
+<meta property="og:description" content="A way to Store Notes" />
+<link rel="canonical" href="http://localhost:4200/student/2022/09/27/Messageboard_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2022/09/27/Messageboard_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-27T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Online Notepad" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-27T00:00:00-07:00","datePublished":"2022-09-27T00:00:00-07:00","description":"A way to Store Notes","headline":"Online Notepad","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2022/09/27/Messageboard_IPYNB_2_.html"},"url":"http://localhost:4200/student/2022/09/27/Messageboard_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Online Notepad
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      22 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-09-27T00:00:00-07:00" itemprop="datePublished">
+        Sep 27, 2022
+      </time>
+    </p><h2>Description</h2><p class="page-description">A way to Store Notes</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Board</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #post-form {
+      margin: 20px;
+    }
+
+    #post-input {
+      padding: 10px;
+      width: 80%;
+    }
+
+    #posts {
+      margin-top: 10px;
+      width: 80%;
+    }
+
+    .post {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Note Pad</h1>
+  <div id="post-form">
+    <input type="text" id="post-input" placeholder="Type your message here" />
+    <button onclick="addPost()">Add Note</button>
+    <!-- <button onclick="displayPosts()">Show Current Posts</button> -->
+    <button onclick="clearPosts()">Clear All Saved Notes</button>
+    <!-- <button onclick="clearPost()">Clear Current Post</button> -->
+  </div>
+
+  <div id="posts">
+    <!-- Current posts will be appended here -->
+  </div>
+
+  <script>
+    function addPost() {
+      const postInput = document.getElementById('post-input');
+      const postsDiv = document.getElementById('posts');
+
+      const newPost = document.createElement('div');
+      newPost.className = 'post';
+      newPost.textContent = postInput.value;
+
+      postsDiv.appendChild(newPost);
+      postInput.value = '';
+
+      // Store the posts in local storage (temporary, only available for the current user/browser)
+      const existingPosts = JSON.parse(localStorage.getItem('posts')) || [];
+      existingPosts.push(newPost.textContent);  // Push the post content, not the input value
+      localStorage.setItem('posts', JSON.stringify(existingPosts)); // Update the local storage with the new post
+    }
+
+
+    function displayPosts() {
+      const postsDiv = document.getElementById('posts');
+      postsDiv.innerHTML = ''; // Clear existing posts
+
+      const existingPosts = JSON.parse(localStorage.getItem('posts')) || []; //stores exisitng posts
+
+      for (const post of existingPosts) {
+        const newPost = document.createElement('div');
+        newPost.className = 'post';
+        newPost.textContent = post; // Assign the text content to the new post element
+        postsDiv.appendChild(newPost); 
+      }
+    }
+    function clearPosts(){ // clears exisitng posts that are saved
+      localStorage.clear();
+      const postsDiv = document.getElementById('posts');
+      postsDiv.innerHTML = ''; // Clear existing posts
+    }
+    displayPosts();
+  </script>
+</body>
+
+</html>
+
+<hr />
+<p>toc: true
+comments: false
+layout: post
+title: Student Teach - Legal and Ethical Concerns of Technology 
+description: A lesson on the legal and ethical concerns of technology! By Aditi, Eshika, Cindy, Avanthika, Nupur 
+type: ccc
+courses: { csp: {week: 13} }
+—</p>
+<h1 id="legal-and-ethical-concerns-of-technology"><span style="color:cadetblue">LEGAL AND ETHICAL CONCERNS OF TECHNOLOGY</span></h1>
+
+<h2 id="ownership-and-licensing"><span style="color:pink">Ownership and Licensing:</span></h2>
+<ul>
+  <li>Creations on a computer are owned by the creator or organization.</li>
+  <li>Concerns arise with the easy access and distribution of digital content, emphasizing the need for protective measures.
+Licensing options include:</li>
+  <li>Creative Commons, offering clear usage guidelines for intellectual property (IP).</li>
+  <li>Open source, allowing free use, redistribution, and modification of programs.</li>
+  <li>Open Access, enabling unrestricted access to online research.</li>
+</ul>
+
+<p><img src="https://teaching.resources.osu.edu/sites/default/files/styles/max_3840x3840/public/2022-12/CreativeCommonsGraphic.jpg?itok=LmaLpQYa" alt="Commit" /></p>
+
+<h2 id="ethical-use-and-citation"><span style="color:pink">Ethical Use and Citation:</span></h2>
+<ul>
+  <li>Unauthorized use of someone else’s work is plagiarism, carrying legal consequences.</li>
+  <li>Legal utilization involves seeking permission from the creator.</li>
+  <li>Proper citation is essential when using material created by others.</li>
+</ul>
+
+<h2 id="popcorn-hack-1"><span style="color:cadetblue">Popcorn Hack #1</span></h2>
+<ul>
+  <li>Can you give an two different examples of how you might use citations in everyday life? (1 chocolate per answer, 3 answers total)</li>
+</ul>
+
+<h2 id="broad-access-to-digital-information"><span style="color:pink">Broad Access to Digital Information:</span></h2>
+<ul>
+  <li>Creative Commons, open source, and open access contribute to widespread access to digital content.</li>
+</ul>
+
+<h2 id="legal-and-ethical-implications-of-computing"><span style="color:pink">Legal and Ethical Implications of Computing:</span></h2>
+<ul>
+  <li>Computing has legal and ethical considerations, especially in social and political contexts.</li>
+  <li>The digital divide raises ethical concerns about unequal access to technology.</li>
+  <li>Innovations like biased algorithms and data-collecting devices pose legal and ethical challenges.</li>
+</ul>
+
+<h2 id="intellectual-property-and-copyright-protection"><span style="color:pink">Intellectual Property and Copyright Protection:</span></h2>
+<ul>
+  <li>Intellectual Property (IP) results from creative efforts and is protected by copyright.</li>
+  <li>Copyright ensures exclusive usage rights, requiring permission for use.</li>
+</ul>
+
+<p><img src="https://static.vecteezy.com/system/resources/previews/000/582/676/original/copyright-symbol-icon-vector-illustration.jpg" alt="Copyright Symbol" width="100" height="100" /></p>
+
+<h2 id="consequences-of-violations"><span style="color:pink">Consequences of Violations:</span></h2>
+<ul>
+  <li>Plagiarism, presenting someone else’s work as your own, is against the law.</li>
+  <li>Legal avenues for using others’ work include licenses such as Creative Commons, open source, and open access.</li>
+  <li>People can face fines and prison sentences depending on the severity of the case.</li>
+</ul>
+
+<h1 id="popcorn-hack-2"><span style="color:cadetblue">Popcorn Hack #2</span></h1>
+<p>If a person copies and earns $2,500 from plagiarized work what legal repercussions could they face? Would they face fines or prison sentences, and for how long?</p>
+
+<h2 id="copyright-and-intellectual-property"><span style="color:pink">Copyright and Intellectual Property</span></h2>
+
+<p>Copyright is the legal right that the creator of a work has to it. The WIPO defines two types of rights under copyright:</p>
+
+<p>Economic Rights: rights to financial benefits from the use of the work</p>
+
+<p>Moral rights :rights that aren’t financial but are still important. For example, the right to claim authorship or the right to prevent harmful changes.</p>
+
+<p>Copyright is not a new concept. Copyright laws have been around since the 18th century. However, the digital age has created new challenges to copyright and demands new ways to protect it as well.</p>
+
+<p>Positives:</p>
+
+<ul>
+  <li>Copyright gives the creator the right to prevent others from exploiting their work.</li>
+  <li>Copyright promotes fair innovation.
+Copyright provides financial benefits to users.</li>
+</ul>
+
+<p>Negatives of copyright:</p>
+
+<ul>
+  <li>Copyright laws can get in the way of creative freedom as creators can get scared of  building upon previous works because of copyright protection.</li>
+  <li>Copyright only offers limited protection. For example, copyright protects a particular expression of an idea (as in images, words or sounds) but it does not protect the idea or concept itself.</li>
+</ul>
+
+<p>Using content created by someone else without permission or citation can have consequences, such as a fine or an order to remove copyrighted content.</p>
+
+<p>If you claim the said content was your own, even unintentionally, you might be found guilty of plagiarism.</p>
+
+<p><img src="https://www.investopedia.com/thmb/f9sn-NNCl2sajrRI5NOEuJsQjkM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/copyright-4198743-01-FINAL-a21594dd0b6344f583f9ded410d8d6f8.jpg" alt="Copyright Image" width="300" height="200" /></p>
+
+<h2 id="plagiarism"><span style="color:pink">Plagiarism</span></h2>
+
+<p>Plagiarism is when you take the content of someone else and claim it as your own. The most common type of plagiarism students hear about is the plagiarism of written ideas and/or phrases. It’s possible to accidentally plagiarize by simply forgetting to cite the original source of an idea or phrase.</p>
+
+<p>Plagiarism can have serious consequences, especially in the world of academia. It can get students expelled and see the careers of professors destroyed. Furthermore, there could be legal consequences as well.</p>
+
+<p>It’s not difficult in the age of image searches and Turnitin.com to be caught plagiarizing or violating copyright. It can also be incredibly disheartening for content creators to see their hard work taken without permission or credit.</p>
+
+<h2 id="gpl-and-black-duck"><span style="color:pink">GPL and Black Duck:</span></h2>
+<ul>
+  <li>
+    <p>In companies like Qualcomm, patents have been a way for the company to gain revenue. However, a term known as GPL(General public license) can create clashes with the legal rights of patents. GPL is known as the right for users to manipulate and use the software for their own benefits. GPL protects your rights with two steps: (1) assert copyright on the software, and (2) offer you this License giving you legal permission to copy, distribute and/or modify it. An example is linux. Linux is open-source(original code which is made free and available for the public.) software, and users have the freedom to view, modify, and distribute the source code, provided they also distribute any modifications under the same GPL license terms. Open source licensing also contributed to helping both contributors and users and they are a binding legal contract between author and user that declares the certain conditions in which a piece of software can be used.</p>
+  </li>
+  <li>
+    <p>Back to qualcomm, GPL can prohibit people from making money off of their patents, which doesn’t favor the creators of the code. Qualcomm instead wants something known as royalty payment where the ones using the code, patent, or idea should pay royalty. Royalty payment is defined as a regular fee paid by a licensee to a licensor in exchange for the licensee to gain access to the licensors code.</p>
+  </li>
+  <li>
+    <p>Black Duck® software composition analysis (SCA) is a tool that helps development teams manage risks linked to open source and third-party code in applications and containers. It addresses security, quality, and license compliance concerns, ensuring software integrity by identifying and mitigating vulnerabilities while maintaining adherence to licensing requirements.</p>
+  </li>
+  <li>
+    <p>This whoel comcept may sound simple and unimportant, but think about the Students of Today, often they are given an assignment and instead of developing their own algorithm they opt to copy something off the internet. Well, don’t think the Workers of Today are entirely different. In summary, it is important to know the type of software license you are copying, it could impact billions of dollars in business.</p>
+  </li>
+</ul>
+
+<h2 id="gnu"><span style="color:pink">GNU:</span></h2>
+
+<ul>
+  <li>GNU Stands for “GNU’s Not Unix,” an open-source operating system.</li>
+  <li>It is rooted in software freedom, emphasizing users’ rights to run, study, modify, and share software.</li>
+  <li>It includes the GNU Compiler Collection (GCC) and essential libraries, forming the foundation for various software applications.</li>
+</ul>
+
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qh-kaBG2vPgs2jlqRZg_3QEbiILMnlyqqc8natIfYKrubOLggJGNhFp4s69f_NLzLVw&amp;usqp=CAU" alt="GNU" /></p>
+
+<h2 id="-android-vs-apple-copyright-case-"><span style="color:pink"> Android vs Apple Copyright Case </span></h2>
+<ul>
+  <li>Apple sued Samsung in 2011 for copyright infringements</li>
+  <li>7-year-long patent that resulted in a $1 billion ruling in Apple’s favor</li>
+  <li>Involved with similarities between the Apple iPhone and Samsung’s Galaxy S line</li>
+  <li>In 2014, the jury found in favor of Apple, awarding Apple almost $120 million for patent violations. However, the jury also found Apple also infringed Samsung’s patents, awarding $158,400</li>
+  <li>In the end, Samsung faced heavy losses but was able to gain more market recognition and grow its business ventures.</li>
+  <li>Helped set the precedent for patent and copyright cases</li>
+</ul>
+
+<p><img src="https://media.licdn.com/dms/image/D5612AQGYztj8Aq-JiA/article-cover_image-shrink_720_1280/0/1699026753386?e=2147483647&amp;v=beta&amp;t=8l4-7teXuM3vwBfD8KbNgRzppqQipyALdsoU6ZcYowY" alt="Alt text" /></p>
+
+<h3 id="-redhat-legal-implications-"><span style="color:pink"> Redhat Legal Implications </span></h3>
+<p>Open Source Compliance:</p>
+<ul>
+  <li>Crucial adherence to open-source licenses.</li>
+  <li>Non-compliance may lead to legal actions and reputational damage.</li>
+</ul>
+
+<p>Patent Litigation:</p>
+<ul>
+  <li>Potential facing of patent infringement claims.</li>
+  <li>Costly legal battles impacting product delivery.</li>
+  <li>Claims involve unauthorized use of patented inventions, especially in software and open-source technologies.</li>
+</ul>
+
+<p>Intellectual Property Protection:*</p>
+<ul>
+  <li>Balancing intellectual property protection with open-source principles is crucial for Red Hat.</li>
+</ul>
+
+<p>Data Privacy and Security:</p>
+<ul>
+  <li>Strict compliance with data protection laws is essential.</li>
+  <li>Breaches may result in legal consequences and regulatory penalties for Red Hat.</li>
+</ul>
+
+<h1 id="homework"><span style="color:cadetblue">Homework</span></h1>
+
+<ol>
+  <li>
+    <p>Describe the key differences between the Creative Commons Zero v1.0 Universal, Open Source MIT License, and Open Source GPL License.</p>
+  </li>
+  <li>
+    <p>Give examples that illustrate how companies, such as Qualcomm and Red Hat, have leveraged Open Source licenses to establish unique business models.</p>
+  </li>
+  <li>
+    <p>Why are businesses that heavily rely on Open Source software still need to generate income and how they manage this within the constraints of Open Source licenses.</p>
+  </li>
+</ol>
+
+<h1 id="extra-credit"><span style="color:cadetblue">Extra Credit</span></h1>
+
+<p>Explain the significance of choosing an appropriate license for personal and team GitHub repositories, especially for the CPT project. How does this relate to the broader themes of legal and ethical concerns in computing?</p>
+
+
+  </div><a class="u-url" href="/student/2022/09/27/Messageboard_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

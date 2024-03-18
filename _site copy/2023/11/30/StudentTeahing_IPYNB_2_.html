@@ -1,0 +1,260 @@
+<h2 id="fault-tolerance"><strong>Fault Tolerance</strong></h2>
+
+<h3 id="fault-tolerance-the-ability-of-a-system-to-continue-to-operate-properly-and-without-interruption-if-one-or-more-of-its-components-were-to-fail">Fault Tolerance: The ability of a system to continue to operate properly and without interruption if one or more of its components were to fail.</h3>
+
+<p>There are a few factors you need to confirm to decide if a system is fault tolerant or not. Think of each device/point as a pool, and the lines as pipes.</p>
+
+<ul>
+  <li>
+    <p>If you were to pour water into any pool, can the other pools access the water? 
+(can data be accessed from all points?)</p>
+  </li>
+  <li>
+    <p>If one pipe were to be cut, can the other pools still access the water? 
+(If a path fails, can data be accessed from all points?)</p>
+  </li>
+  <li>
+    <p>If one pool is removed, can the other pools still access water from eachother? 
+(If one device fails, can the other points receive data?)</p>
+  </li>
+</ul>
+
+<p>If to answer to all of these are “Yes,” then the system is Fault Tolerant.</p>
+
+<blockquote>
+  <blockquote>
+    <p>Redundancy: Fault Tolerant networks typically have extra components and pathways to ensure reliability, making them have redundancy.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>“Essential Knowledges” from College Board</p>
+  </blockquote>
+</blockquote>
+
+<ul>
+  <li>
+    <p>The Internet has been engineered to be fault-tolerant, with abstractions for routing and transmitting data.</p>
+  </li>
+  <li>
+    <p>Redundancy is the inclusion of extra components that can be used to mitigate failure of a system if other components fail.</p>
+  </li>
+  <li>
+    <p>One way to accomplish network redunadancy is by having more than one path between any to connected devices.</p>
+  </li>
+  <li>
+    <p>If a particular device or connection on the Internet fails, subsequent data will be sent via a different route if it’s possible to reach that.</p>
+  </li>
+  <li>
+    <p>Redundancy within a system often requires additional resources but can provide the benefit of fault tolerance.</p>
+  </li>
+  <li>
+    <p>The redundancy of routing options between 2 points increases the reliability of the Internet and helps it scale to the more devices and more people.</p>
+  </li>
+</ul>
+
+<h3 id="examples">Examples:</h3>
+
+<p><img src="https://i.ibb.co/KmFLv42/2023-12-03-174918.png" alt="image-2.png" /></p>
+
+<ul>
+  <li>The network above <strong>is not fault tolerant</strong> because if one path stops working, data cannot be accessed by further devices.</li>
+</ul>
+
+<p><img src="https://i.ibb.co/DQrQBmH/2023-12-03-175037.png" alt="image.png" /></p>
+
+<ul>
+  <li>The network above <strong>is fault tolerant</strong> since if one path stops working, you are still able to communicate with all the other devices on the network.</li>
+</ul>
+
+<p><img src="https://i.ibb.co/rfWSBJR/2023-12-03-175118.png" alt="image-3.png" /></p>
+
+<ul>
+  <li>The network above <strong>is also fault tolerant</strong> due to the same reasons as the previous example. The network is much more redundant, meaning it is more Fault Tolerant. However, it will require more resources. more components = more expensive.</li>
+</ul>
+
+<h2 id="popcorn-hack-1-true-or-false"><strong>Popcorn Hack #1</strong> (True or False)</h2>
+
+<p><img src="https://i.ibb.co/f8Q84bG/2023-12-03-175201.png" alt="image.png" /></p>
+
+<ul>
+  <li>Identify if the network above is Fault Tolerant or not, and why.</li>
+</ul>
+
+<p>Answer here:</p>
+
+<h3 id="what-are-the-benefits-of-having-a-fault-tolerant-network">What are the benefits of having a Fault Tolerant Network?</h3>
+<ul>
+  <li>
+    <p>Data has more than one path to travel from one device to another.</p>
+  </li>
+  <li>
+    <p>If part of the network fails, the network can still function by using other paths.</p>
+  </li>
+  <li>
+    <p>More devices creates more connections and makes the network stronger.</p>
+  </li>
+</ul>
+
+<p><img src="https://kariera.future-processing.pl//wp-content/uploads/2018/12/distributed_system.png" alt="ferferf" /></p>
+
+<h2 id="popcorn-hack-2-multiple-choice"><strong>Popcorn Hack #2</strong> (Multiple Choice)</h2>
+
+<p><img src="https://i.ibb.co/FxXdKrQ/2023-12-03-175238.png" alt="image.png" /></p>
+
+<p>Is this network above Fault Tolerant? If not, what changes can you make that can make this a fault tolerant network?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- A: connection from *A ---&gt; B*
+- B: connection from *B ---&gt; D*
+- C: connection from *E ---&gt; F*
+- D: connection from *B ---&gt; C*
+</code></pre></div></div>
+
+<p>Answer here:</p>
+
+<h1 id="parallel-and-distributed-computing">Parallel and Distributed Computing</h1>
+
+<h4 id="computer-tasks-all-of-the-tasks-that-are-operated-on-the-computer-has-to-be-handled-by-the-computer-these-tasks-are-scheduled-by-the-operating-system">Computer Tasks: All of the tasks that are operated on the computer has to be handled by the computer. These tasks are scheduled by the operating system.</h4>
+
+<ul>
+  <li>
+    <p>System tasks: Tasks that are done for the operating system, such as managing hardware, network configuration, file management, and security tasks.</p>
+  </li>
+  <li>
+    <p>User tasks: Tasks that the user themself has selected, such as running a search engine, opening a video game, and running MS paint.</p>
+  </li>
+</ul>
+
+<p>Because computers have many tasks to manage, they need to balance the tasks so all CPUs are being utilized evenly and fully.</p>
+
+<h3 id="sequential-computing-tasks-are-done-one-after-the-other-operations-are-performed-one-at-a-time">Sequential Computing: Tasks are done one after the other; operations are performed one at a time.</h3>
+
+<ul>
+  <li>
+    <p>Not efficient. A computer would use sequential computing if its hardware is limited, or if the tasks requested are dependent on eachother.</p>
+  </li>
+  <li>
+    <p>Useful because it requires less resources and is easier to manage, and has a lower chance of error compared to parallel computing.</p>
+  </li>
+  <li>
+    <p>Takes long for computer to execute all tasks. If Task X takes 30 ms, Y takes 40 ms, and Z 20 ms, and the order executed is X-Y-Z, then the total processing time is 90 ms.</p>
+  </li>
+</ul>
+
+<h3 id="parallel-computing-tasks-are-done-simultaneously">Parallel Computing: tasks are done simultaneously.</h3>
+
+<p><img src="https://hpc.llnl.gov/sites/default/files/styles/with_sidebar_1_up/public/parallelProblem.gif?itok=u4OKbOB5" alt="image.png" /></p>
+
+<ul>
+  <li>
+    <p>Hardware Driven: newer hardwares have several processers in one system called cores. One CPU can have 64+ cores. This speeds up the processing time greatly.</p>
+  </li>
+  <li>
+    <p>Faster Operations: links CPUs together to work the same problem.</p>
+  </li>
+  <li>
+    <p>Data Driven: Data can be processed the same way called Single Instruction Multiple Data.</p>
+  </li>
+  <li>
+    <p>Processing time is the longest time taken for the procressors. Example Core 1 takes 50 ms, Core 2 100 ms, Core 3 10 ms, total time taken  is 100 ms. This is why parallel processing works best when tasks are independent from eachother.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <blockquote>
+    <p>Speedup Time: The speedup of a parallel solution is measured in the time it takes to complete the task sequentially divided by the time it takes to complete the task in parallel. Example Sequential time is 120 ms, parallel time is 60 ms, speedup time is 2 ms</p>
+  </blockquote>
+</blockquote>
+
+<h3 id="distributed-computing-sending-of-tasks-from-one-computer-to-another-multiple-devices-are-used-to-run-a-program-requires-a-network">Distributed Computing: sending of tasks from one computer to another; multiple devices are used to run a program. Requires a network.</h3>
+
+<p><img src="https://images.spiceworks.com/wp-content/uploads/2022/01/12132236/Distributed-System.png" alt="image.png" /></p>
+
+<ul>
+  <li>
+    <p>Can mix sequential and parallel computing, based on how it sends out tasks to other computers to work.</p>
+  </li>
+  <li>
+    <p>Allows problems to be solved that aren’t possible on a single computer due to storage limitations and processing time.</p>
+  </li>
+</ul>
+
+<p>For example, when you search something up on google, Google sends the request to thousands of servers in the backround for your answers.</p>
+
+<blockquote>
+  <blockquote>
+    <p>Web Services: Standards on how computers can ask for tast execution over the web, including protocols</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>Beowolf Clusters: special software grouping different computers together</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <p>Essential Knowledges from College Board:</p>
+  </blockquote>
+</blockquote>
+
+<ul>
+  <li>
+    <p>Sequential computing is a computational model in which operations are performed in order one at a time.</p>
+  </li>
+  <li>
+    <p>Parallel computing is a computational moder where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.</p>
+  </li>
+  <li>
+    <p>Distributed computing is a computational model in which multiple devices are used to run a program.</p>
+  </li>
+  <li>
+    <p>Comparing efficiency of solutions can be done by comparing the time it takes them to perform the same task.</p>
+  </li>
+  <li>
+    <p>A sequential solution takes as longas the sum of all its steps.</p>
+  </li>
+  <li>
+    <p>A parallel computing solution takes as long as its sequential tasks plus the longest of its parallel tasks.</p>
+  </li>
+  <li>
+    <p>The “speedup” of a parallel solution is measured in the time it took to complete the task sequentially divided by the time it took to complete the task when done in parallel.</p>
+  </li>
+  <li>
+    <p>Parallel computing consists of a parallel portion and a sequential portion.</p>
+  </li>
+  <li>
+    <p>Solutions that use parallel computing can scale more effectively than solutions that use sequential computing.</p>
+  </li>
+  <li>
+    <p>Distributed computing allows problems to be sovled that ould not be solved in a single computer because of either the processing time or the stroage needs involved.</p>
+  </li>
+  <li>
+    <p>Distributed computing allows much larger problems to be solved quicker than they could be solved using a single computer.</p>
+  </li>
+  <li>
+    <p>When increasing the use of parallel computing in a solution, the efficiency of the solution is still limited by the sequential portion. This means that at some point, adding parallel portions will no longer meaningfully increase efficiency.</p>
+  </li>
+</ul>
+
+<h2 id="popcorn-hack-3"><strong>Popcorn Hack #3</strong></h2>
+
+<p>Explain the difference between Sequential, Parallel, and Distributive computing in 1-2 sentences. Try to not look at answers above, and put it in your own words.</p>
+
+<h1 id="homework">HOMEWORK</h1>
+
+<h2 id="fault-tolerance-1">Fault Tolerance:</h2>
+<p>Make two data flowcharts like the examples above, you can use MS paint, canva, any design website. Make one Fault Tolerant and one not fault tolerant, and explain what needs to be changed to the flowchart in order to make the network fault tolerant. Doing these will get you over a .90:</p>
+<ul>
+  <li>Neat design, easy to understand</li>
+  <li>real network examples; don’t label each point as A-B-C etc.</li>
+</ul>
+
+<h2 id="parallel-and-distributed-computing-1">Parallel and Distributed Computing:</h2>
+<ul>
+  <li>First make a simple code that runs sequentially, for example loops ten times before stopping.</li>
+  <li>Then make code that completes the same job quicker by running parallel.</li>
+</ul>
+

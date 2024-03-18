@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>4.1 The Internet | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="4.1 The Internet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Homework For this week" />
+<meta property="og:description" content="The Homework For this week" />
+<link rel="canonical" href="http://localhost:4200/student/2023/12/03/4.1HomeworkTheInternet_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/12/03/4.1HomeworkTheInternet_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-03T00:00:00-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="4.1 The Internet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-03T00:00:00-08:00","datePublished":"2023-12-03T00:00:00-08:00","description":"The Homework For this week","headline":"4.1 The Internet","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/12/03/4.1HomeworkTheInternet_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/12/03/4.1HomeworkTheInternet_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">4.1 The Internet
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-12-03T00:00:00-08:00" itemprop="datePublished">
+        Dec 3, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">The Homework For this week</p><ul><li><a href="#ip-adresses">Ip Adresses</a><ul><li><a href="#1">1</a></li><li><a href="#2">2</a></li><li><a href="#2-1">2</a></li></ul></li><li><a href="#dns">DNS</a></li><li><a href="#http-and-https">HTTP and HTTPS</a><ul><li><a href="#1-1">1</a></li></ul></li><li><a href="#tcp-and-udp">TCP and UDP</a><ul><li><a href="#1-2">1</a></li><li><a href="#3">3</a></li></ul></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="ip-adresses">Ip Adresses</h1>
+<h2 id="1">1</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 1.1.1.1.1(This is not valid as it is a set of 5 digits not a set of 4 digits, which doesn't follow the IP address protocol.)
+- 23.23.23.23(This is  valid since  there are 4 numbers they are in the range 0-255)
+- 134.492.100.0(This is not valid because the second number excedes 255, which is the bound)
+- 255.256.55.255(This is again not valid becuz the second number also excedes 255)
+- 2.93.255.1(This is valid as there are 4 numbers and they are 0-255)
+</code></pre></div></div>
+
+<h2 id="2">2</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- Multicast because he is only 1 person setting it to a roup of divices on a specific ip range, which is on the network. UDP is also used in this.  # Models ## 1
+- ASCII is the only one on the Presentation layer as it translates different characters into a universal language that computers use.
+- The rest are apart of the Transport layer as they relate to the transfer of data between computers.
+</code></pre></div></div>
+
+<h2 id="2-1">2</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- It would be in the application layer because it is an application that alllows resource sharing through different computers over a network. This is the 7th layer too. 
+</code></pre></div></div>
+
+<h1 id="dns">DNS</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- The subdomains would be bob, is, the, and best. He should buy best domain from the DNS provider.
+</code></pre></div></div>
+
+<h1 id="http-and-https">HTTP and HTTPS</h1>
+<h2 id="1-1">1</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- HTTPS provides encryption with SSL/TLS or Secure Socket or Transport Layer Securty encryption, which makes the data more secure and HTTPS a better option.  ## 2
+- We used HTTP.
+- The benefits of this is it might be much more faster than HTTPS but the problem is it won't be as secure.
+</code></pre></div></div>
+
+<h1 id="tcp-and-udp">TCP and UDP</h1>
+<h2 id="1-2">1</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- He should use UDP because it is a faster protocol but the cons of it is that it won't be as perfect or reliable as normal because it picks speed over the quality always to make it better for live streaming. A potential issue is some of th epixels not loading in properly. ## 2
+- It ensures all the packets arrive properly to give you the quality and accurate result. An example of it doing this is through the server-to-server communication. 
+</code></pre></div></div>
+
+<h2 id="3">3</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- It does SYN-ACk so it sends back acknowledgement of this to the server A to ensure Server A that everything is running smoothly.
+- Another use of this is possibly a chat system, which is much less data than streaming but requires correct letters and accuracy. 
+</code></pre></div></div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/2023/12/03/4.1HomeworkTheInternet_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

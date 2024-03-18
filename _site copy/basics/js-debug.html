@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>1.4 Correcting errors | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="1.4 Correcting errors" />
+<meta name="author" content="Safin Singh and Rohan Juneja" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Practice with identifying and correcting code blocks" />
+<meta property="og:description" content="Practice with identifying and correcting code blocks" />
+<link rel="canonical" href="http://localhost:4200/student/basics/js-debug" />
+<meta property="og:url" content="http://localhost:4200/student/basics/js-debug" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-20T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="1.4 Correcting errors" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Safin Singh and Rohan Juneja"},"dateModified":"2023-09-20T00:00:00-07:00","datePublished":"2023-09-20T00:00:00-07:00","description":"Practice with identifying and correcting code blocks","headline":"1.4 Correcting errors","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/basics/js-debug"},"url":"http://localhost:4200/student/basics/js-debug"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">1.4 Correcting errors
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      11 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-09-20T00:00:00-07:00" itemprop="datePublished">
+        Sep 20, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Safin Singh and Rohan Juneja</span></span>
+    </p><h2>Description</h2><p class="page-description">Practice with identifying and correcting code blocks</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <table>
+    <tr>
+        <td><img src="/student//images/logo.png" height="60" title="Frontend" alt="" /></td>
+        <td><a href="/student/basics/home">Home</a></td>
+        <td><a href="/student/basics/html">HTML</a></td>
+        <td><a href="/student/basics/datatypes">Data Types</a></td>
+        <td><a href="/student/basics/dom">DOM</a></td>
+        <td><a href="/student/basics/javascript">JavaScript</a></td>
+        <td><a href="/student/basics/js-debug">JS Debugging</a></td>
+    </tr>
+</table>
+
+<p><a href="https://apclassroom.collegeboard.org/103/home?unit=1">College Board Big Idea 1</a></p>
+
+<h2 id="identifying-and-correcting-errors-unit-14">Identifying and Correcting Errors (Unit 1.4)</h2>
+
+<blockquote>
+  <p>Become familiar with types of errors and strategies for fixing them</p>
+</blockquote>
+
+<ul>
+  <li>Review CollegeBoard videos and take notes on blog</li>
+  <li>Complete assigned MCQ questions if applicable</li>
+</ul>
+
+<h1 id="code-segments">Code Segments</h1>
+
+<p>Practice fixing the following code segments!</p>
+
+<h2 id="segment-1-alphabet-list">Segment 1: Alphabet List</h2>
+
+<p>Intended behavior: create a list of characters from the string contained in the variable <code class="language-plaintext highlighter-rouge">alphabet</code></p>
+
+<h3 id="code">Code:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">html</span>
+
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>	
+<span class="n">var</span> <span class="n">alphabet</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">alphabetList</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">alphabetList</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">alphabetList</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>	
+</code></pre></div></div>
+
+<script>	
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var alphabetList = [];
+
+for (var i = 0; i < 26; i++) {
+	alphabetList.push(alphabet[i]);
+}
+
+console.log(alphabetList);
+</script>
+
+<h3 id="what-i-changed">What I Changed</h3>
+
+<p>I changed the amount it went to in the forloop since before it said i&lt;10 while there are 26 letters in the alphabet not 10. I also changed the elements of the array so it adds a letter instead of a number.</p>
+
+<h2 id="segment-2-numbered-alphabet">Segment 2: Numbered Alphabet</h2>
+
+<p>Intended behavior: print the number of a given alphabet letter within the alphabet. For example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"_" is letter number _ in the alphabet
+</code></pre></div></div>
+
+<p>Where the underscores (_) are replaced with the letter and the position of that letter within the alphabet (e.g. a=1, b=2, etc.)</p>
+
+<h3 id="code-1">Code:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">html</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="n">var</span> <span class="n">alphabet</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyz"</span><span class="p">;</span>
+  <span class="n">var</span> <span class="n">alphabetList</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="o">//</span> <span class="n">Corrected</span> <span class="n">loop</span> <span class="n">to</span> <span class="n">push</span> <span class="n">letters</span> <span class="k">from</span> <span class="n">the</span> <span class="s">'alphabet'</span> <span class="n">string</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">alphabetList</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+
+  <span class="n">let</span> <span class="n">letter</span> <span class="o">=</span> <span class="s">"e"</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">alphabetList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">letter</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="s">" is the number of theletter of the alphabet given: "</span><span class="p">,</span> <span class="n">letter</span><span class="p">);</span>
+      <span class="k">break</span><span class="p">;</span>  <span class="o">//</span> <span class="n">Exit</span> <span class="n">the</span> <span class="n">loop</span> <span class="n">once</span> <span class="n">we</span> <span class="n">find</span> <span class="n">the</span> <span class="n">letter</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+
+</code></pre></div></div>
+
+<script>
+  var alphabet = "abcdefghijklmnopqrstuvwxyz";
+  var alphabetList = [];
+
+  // Corrected loop to push letters from the 'alphabet' string
+  for (var i = 0; i < 26; i++) {
+    alphabetList.push(alphabet[i]);
+  }
+
+  let letter = "e";
+
+  for (var i = 0; i < 26; i++) {
+    if (alphabetList[i] == letter) {
+      console.log(i+1," is the number of theletter of the alphabet given: ", letter);
+      break;  // Exit the loop once we find the letter
+    }
+  }
+</script>
+
+<h3 id="what-i-changed-1">What I Changed</h3>
+
+<p>I changed there were 3 equal signs before when comparing both values. I also changed it so it doesn’t take in the number rather the letter instead. I changed the values compared and the input.</p>
+
+<h2 id="segment-3-odd-numbers">Segment 3: Odd Numbers</h2>
+
+<p>Intended behavior: print a list of all the odd numbers below 10</p>
+
+<h3 id="code-2">Code:</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">html</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+  <span class="n">let</span> <span class="n">odds</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="n">let</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="n">i1</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">odds</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i1</span><span class="p">);</span>
+    <span class="n">i1</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">odds</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<script>
+  let odds = [];
+  let i1 = 1;
+
+  while (i1 <= 10) {
+    odds.push(i1);
+    i1 += 2;
+  }
+
+  console.log(odds);
+</script>
+
+<h3 id="what-i-changed-2">What I Changed</h3>
+
+<p>I changed the value for the starting of I since it was starting at 0 and pushing all the even numbers to the array instead of the odd numbers.</p>
+
+<h1 id="below-not-edited">BELOW NOT EDITED</h1>
+
+<p>The intended outcome is printing a number between 1 and 100 once, if it is a multiple of 2 or 5</p>
+<ul>
+  <li>What values are outputted incorrectly. Why? Some values are printed twice since they are divisble by both 2 and 5. To fix this we can use the else-if condition type for divisbility by 2.</li>
+  <li>Make changes to get the intended outcome.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">html</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="n">var</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">var</span> <span class="n">newNumbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">numbers</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="n">of</span> <span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">newNumbers</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">newNumbers</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">newNumbers</span><span class="p">)</span> 
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+
+
+</code></pre></div></div>
+
+<script>
+var numbers = []
+var newNumbers = []
+var i = 0
+
+while (i < 100) {
+    numbers.push(i)
+    i += 1
+}
+for (var i of numbers) {
+    if (numbers[i] % 5 === 0)
+        newNumbers.push(numbers[i])
+    else if (numbers[i] % 2 === 0)
+        newNumbers.push(numbers[i])
+}
+console.log(newNumbers) 
+</script>
+
+<h1 id="challenge">Challenge</h1>
+
+<p>This code segment is at a very early stage of implementation.</p>
+<ul>
+  <li>What are some ways to (user) error proof this code?</li>
+  <li>The code should be able to calculate the cost of the meal of the user</li>
+</ul>
+
+<p>Hint:</p>
+<ul>
+  <li>write a “single” test describing an expectation of the program of the program</li>
+  <li>test - input burger, expect output of burger price</li>
+  <li>run the test, which should fail because the program lacks that feature</li>
+  <li>write “just enough” code, the simplest possible, to make the test pass</li>
+</ul>
+
+<p>Then repeat this process until you get program working like you want it to work.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">js</span>
+
+<span class="n">var</span> <span class="n">menu</span> <span class="o">=</span>  <span class="p">{</span><span class="s">"burger"</span><span class="p">:</span> <span class="mf">3.99</span><span class="p">,</span>
+         <span class="s">"fries"</span><span class="p">:</span> <span class="mf">1.99</span><span class="p">,</span>
+         <span class="s">"drink"</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">}</span>
+<span class="n">var</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="o">//</span><span class="n">shows</span> <span class="n">the</span> <span class="n">user</span> <span class="n">the</span> <span class="n">menu</span> <span class="ow">and</span> <span class="n">prompts</span> <span class="n">them</span> <span class="n">to</span> <span class="n">select</span> <span class="n">an</span> <span class="n">item</span>
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">"Menu"</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">menu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="s">"  $"</span> <span class="o">+</span> <span class="n">menu</span><span class="p">[</span><span class="n">item</span><span class="p">].</span><span class="n">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">//</span><span class="n">why</span> <span class="ow">is</span> <span class="n">toFixed</span> <span class="n">used</span><span class="err">?</span>
+<span class="p">}</span>
+<span class="o">//</span><span class="n">ideally</span> <span class="n">the</span> <span class="n">code</span> <span class="n">should</span> <span class="n">support</span> <span class="n">mutliple</span> <span class="n">items</span>
+<span class="n">var</span> <span class="n">item</span> <span class="o">=</span> <span class="s">"burger"</span>
+
+<span class="o">//</span><span class="n">code</span> <span class="n">should</span> <span class="n">add</span> <span class="n">the</span> <span class="n">price</span> <span class="n">of</span> <span class="n">the</span> <span class="n">menu</span> <span class="n">items</span> <span class="n">selected</span> <span class="n">by</span> <span class="n">the</span> <span class="n">user</span> 
+<span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="hacks">Hacks</h2>
+<ul>
+  <li>Fix the errors in the first three segments in this notebook and say what you changed in the code cell under “What I Changed” (Challenge is optional)</li>
+</ul>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/basics/js-debug" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

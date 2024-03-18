@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Proecdures Homework | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Proecdures Homework" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Homework For this week" />
+<meta property="og:description" content="The Homework For this week" />
+<link rel="canonical" href="http://localhost:4200/student/2023/10/29/Procedureshw_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/10/29/Procedureshw_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-10-29T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Proecdures Homework" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-10-29T00:00:00-07:00","datePublished":"2023-10-29T00:00:00-07:00","description":"The Homework For this week","headline":"Proecdures Homework","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/10/29/Procedureshw_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/10/29/Procedureshw_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Proecdures Homework
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-10-29T00:00:00-07:00" itemprop="datePublished">
+        Oct 29, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">The Homework For this week</p><ul><li><a href="#notes">Notes</a></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#first problem
+</span><span class="k">def</span> <span class="nf">converttobinary</span><span class="p">(</span><span class="n">integer</span><span class="p">):</span>
+    <span class="c1">#converting to binary by scratch
+</span>    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">string</span><span class="o">=</span><span class="s">""</span>
+    <span class="n">integer</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">integer</span><span class="p">))):</span> <span class="c1"># going through each character and adding the binary of it to a string
+</span>        <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"0"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0000"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"1"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0001"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"2"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0010"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"3"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0011"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"4"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0100"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"5"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0101"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"6"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0110"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"7"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"0111"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"8"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"1000"</span>
+        <span class="k">elif</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="s">"9"</span><span class="p">):</span>
+            <span class="n">string</span><span class="o">+=</span><span class="s">"1001"</span>
+    <span class="k">return</span> <span class="n">string</span>
+
+<span class="c1">#second problem
+</span><span class="k">def</span> <span class="nf">summationfunction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</code></pre></div></div>
+
+<h1 id="notes">Notes</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-A procedure is a named group of programming instructions, which can have parameters and return values. In Python, procedures are referred to as functions or methods.
+-Parameters are input values for a procedure, and arguments specify the values of the parameters when the procedure is called.
+-When a procedure is called, it interrupts the sequential execution of statements and executes the statements within the procedure before returning control to the point immediately following the procedure call.
+-Procedures allow you to reuse a set of instructions without rewriting them in your code.
+-Procedures are an example of abstraction, specifically procedural abstraction.
+-Abstraction allows you to call a procedure without knowing how it works, making it easier to solve complex problems based on smaller sub-problems.
+Procedures help simplify code and improve readability by breaking it into smaller, reusable parts.  
+</code></pre></div></div>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/2023/10/29/Procedureshw_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

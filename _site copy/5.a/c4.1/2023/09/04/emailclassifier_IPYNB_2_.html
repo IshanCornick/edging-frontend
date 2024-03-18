@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Email Classifier | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Email Classifier" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Uses Machine learning to classify Emails as Spam or not and is ran on Jupyter Notebooks" />
+<meta property="og:description" content="Uses Machine learning to classify Emails as Spam or not and is ran on Jupyter Notebooks" />
+<link rel="canonical" href="http://localhost:4200/student/5.a/c4.1/2023/09/04/emailclassifier_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/5.a/c4.1/2023/09/04/emailclassifier_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-09-04T00:00:00-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Email Classifier" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-09-04T00:00:00-07:00","datePublished":"2023-09-04T00:00:00-07:00","description":"Uses Machine learning to classify Emails as Spam or not and is ran on Jupyter Notebooks","headline":"Email Classifier","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/5.a/c4.1/2023/09/04/emailclassifier_IPYNB_2_.html"},"url":"http://localhost:4200/student/5.a/c4.1/2023/09/04/emailclassifier_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Email Classifier
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-09-04T00:00:00-07:00" itemprop="datePublished">
+        Sep 4, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">Uses Machine learning to classify Emails as Spam or not and is ran on Jupyter Notebooks</p><ul><li><a href="#code-for-python-email-spam-classifier">Code for Python Email Spam Classifier</a></li></ul></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="code-for-python-email-spam-classifier">Code for Python Email Spam Classifier</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'spam.csv'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'v1'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0        ham
+1        ham
+2       spam
+3        ham
+4        ham
+        ... 
+5567    spam
+5568     ham
+5569     ham
+5570     ham
+5571     ham
+Name: v1, Length: 5572, dtype: object
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Pre-data processing
+</span><span class="n">columnsdrop</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data</span><span class="p">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s">'Unnamed'</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span>
+<span class="n">data</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columnsdrop</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s">'v1'</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s">'v1'</span><span class="p">].</span><span class="nb">map</span><span class="p">({</span><span class="s">'ham'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s">'spam'</span><span class="p">:</span><span class="mi">0</span><span class="p">})</span> <span class="c1"># binary hot encoding
+</span><span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'v2'</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s">'v1'</span><span class="p">],</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">cv</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span> <span class="c1"># Bag of words
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      v1                                                 v2
+0      1  Go until jurong point, crazy.. Available only ...
+1      1                      Ok lar... Joking wif u oni...
+2      0  Free entry in 2 a wkly comp to win FA Cup fina...
+3      1  U dun say so early hor... U c already then say...
+4      1  Nah I don't think he goes to usf, he lives aro...
+...   ..                                                ...
+5567   0  This is the 2nd time we have tried 2 contact u...
+5568   1              Will Ì_ b going to esplanade fr home?
+5569   1  Pity, * was in mood for that. So...any other s...
+5570   1  The guy did some bitching but I acted like i'd...
+5571   1                         Rofl. Its true to its name
+
+[5572 rows x 2 columns]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">MNB</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s">'lbfgs'</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">MNB</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style>
+<div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked="" /><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x_test</span><span class="p">))</span>
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">MNB</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">cv</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">).</span><span class="n">toarray</span><span class="p">())</span> 
+<span class="n">p2</span><span class="o">=</span><span class="n">MNB</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">.</span><span class="n">toarray</span><span class="p">())</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">predicted</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predicted</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">p2</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;class 'pandas.core.series.Series'&gt;
+[1 1 0 ... 1 1 1]
+0.8271387955544068
+0.9848356501090111
+319     1
+3471    1
+1021    0
+5299    1
+1092    1
+       ..
+1636    1
+4517    1
+4431    1
+3666    1
+866     1
+Name: v1, Length: 1672, dtype: int64
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">text</span><span class="o">=</span><span class="p">[</span><span class="s">"click on my link thing.com"</span><span class="p">]</span>
+<span class="n">testingvalue</span><span class="o">=</span><span class="n">MNB</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">cv</span><span class="p">.</span><span class="n">transform</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">testingvalue</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="n">coefficients</span> <span class="o">=</span> <span class="n">MNB</span><span class="p">.</span><span class="n">coef_</span>  <span class="c1"># Coefficients for each feature
+</span><span class="n">intercept</span> <span class="o">=</span> <span class="n">MNB</span><span class="p">.</span><span class="n">intercept_</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">intercept</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[-0.42117837 -0.40637999 -0.00323472 ...  0.1307255   0.00748295
+   0.00334214]] [4.65871166]
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/5.a/c4.1/2023/09/04/emailclassifier_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>

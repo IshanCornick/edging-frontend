@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-US"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Big Idea 5.6 Safe Computing | CompSci Blogs</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Big Idea 5.6 Safe Computing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="hacker" />
+<meta property="og:description" content="hacker" />
+<link rel="canonical" href="http://localhost:4200/student/2023/12/21/Safe_ComputingP5_IPYNB_2_.html" />
+<meta property="og:url" content="http://localhost:4200/student/2023/12/21/Safe_ComputingP5_IPYNB_2_.html" />
+<meta property="og:site_name" content="CompSci Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-12-21T00:00:00-08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Big Idea 5.6 Safe Computing" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-12-21T00:00:00-08:00","datePublished":"2023-12-21T00:00:00-08:00","description":"hacker","headline":"Big Idea 5.6 Safe Computing","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4200/student/2023/12/21/Safe_ComputingP5_IPYNB_2_.html"},"url":"http://localhost:4200/student/2023/12/21/Safe_ComputingP5_IPYNB_2_.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/student/assets/css/style.css?v=1d85b3986ffecae9dc5db7622c0f398cb3a654e2">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script src="/student/assets/js/respond.js"></script>
+
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/student/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+</head><body>
+
+  <div class="wrapper">
+    <header><header class="site-header">
+
+  <div id="header">
+    <nav>
+      <ul>
+        <li class="fork"><a href="/student/">Home</a></li>
+        <li class="fork"><a href="/student/compsci">CompSci</a></li>
+        <li class="fork"><a href="/student/blogs">Blogs</a></li>
+        <li class="title"><a href="/student/help">Help</a></li>
+        <li class="title"><a href="https://github.com/tarunja1ks/student#readme">View On GitHub</a></li>
+      </ul>
+    </nav>
+  </div><!-- end header -->
+</header>
+
+<script>
+  const glowButton = document.getElementById('header');
+  function addGlowEffect() {
+    glowButton.style.boxShadow = '0 0 70px rgba(0, 0, 255, 0.5)';
+  }
+  function removeGlowEffect() {
+    glowButton.style.boxShadow = 'none';
+  }
+
+  // Attach the glow effect when the button is hovered over
+  glowButton.addEventListener('mouseenter', addGlowEffect);
+
+  // Remove the glow effect when the mouse leaves the button
+  glowButton.addEventListener('mouseleave', removeGlowEffect);
+</script></header>
+
+
+    <section>
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 
+      class="post-title p-name" itemprop="name headline">Big Idea 5.6 Safe Computing
+      • <span class="read-time" title="Estimated read time">
+    
+    
+      25 min read
+    
+</span></h1>
+
+    <p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-12-21T00:00:00-08:00" itemprop="datePublished">
+        Dec 21, 2023
+      </time>
+    </p><h2>Description</h2><p class="page-description">hacker</p></header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="big-idea-56-safe-computing">Big Idea 5.6 Safe Computing</h1>
+<p><img src="https://media.istockphoto.com/id/875326436/photo/cybersecurity-digital-globe-with-blueprint.jpg?s=1024x1024&amp;w=is&amp;k=20&amp;c=6fcixWvWK7g-e91eI3JQJbGo82iCJnmUNC-Yl2z-dt0=" alt="Banner" /></p>
+
+<h2 id="personal-identifiable-information-pii">Personal Identifiable Information (PII)</h2>
+<p>Personal Identifiable Information or PII is a type of information that is <strong>specific</strong> to you. For example, your age or race would be an example but something like your favorite cat isn’t (Will insists your diet is a PII but it’s not).</p>
+
+<p>There are times when we want to post our PII online. For example, you would want to upload it to your job profile or a site like LinkedIn because you want people to see it. However, be careful where you upload this data. It will be known by everyone since it’s public.</p>
+
+<blockquote>
+  <p>Some things that you should be cautious about to upload (gray area) would be:</p>
+  <ul>
+    <li>Birth date</li>
+    <li>Place of birth</li>
+    <li>Address</li>
+    <li>Phone number</li>
+    <li>Maiden names</li>
+    <li>Drivers License Number</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <p>There are things, however, that you will most likely have to upload publicly OR can be found with a quick search. For example:</p>
+  <ul>
+    <li>Name</li>
+    <li>Date of Birth</li>
+    <li>SSN</li>
+    <li>Bank Account info</li>
+    <li>Email</li>
+    <li>Picture</li>
+    <li>What high school you attended</li>
+    <li>What college you went to</li>
+    <li>Properties you own</li>
+    <li>State/City of residence</li>
+    <li>Previous residence</li>
+  </ul>
+</blockquote>
+
+<p>You could upload this online (some you have to. Ex: home address for Amazon) but be careful where you upload it. You don’t want to post your mother’s maiden name on social media.</p>
+
+<blockquote>
+  <p>Things that you should keep confidential would be:</p>
+  <ul>
+    <li>Private credentials for accounts and what-not</li>
+    <li>Two-factor authentication</li>
+    <li>This is common for sensitive things like financial data</li>
+    <li>Social security numbers</li>
+    <li>Tax records</li>
+    <li>Medical information</li>
+    <li>Financial data</li>
+  </ul>
+</blockquote>
+
+<p>Most if not all financial and government documents should be kept private. However, there will be times when you need to share this. For example, if you are applying for a RealID (form of identification), you will need to submit your social security number.</p>
+
+<h3 id="popcorn-hack-1">POPCORN HACK 1:</h3>
+<blockquote>
+  <p>How do you decide what personal information to share online and what to keep confidential?</p>
+</blockquote>
+
+<h2 id="beware-establish-practices-for-your-own-safety">Beware, Establish practices for your own Safety</h2>
+<h4 id="authentication">Authentication</h4>
+<blockquote>
+  <p>Authentication measures protect devices and information from unauthorized access.</p>
+  <h4 id="strong-passwords">Strong Passwords</h4>
+  <p>The easier the password is to guess, the easier it is to make a mess.
+Strong passwords:</p>
+  <ul>
+    <li>10 or more characters</li>
+    <li>Must contain a symbol</li>
+    <li>Must contain a number</li>
+    <li>Must contain lowercase and uppercase letters</li>
+    <li>Avoid dictionary words/things known about you (ex. “Password”, “123456”, your birthday, your name, your pet’s name, etc.)
+The above are things hackers can look for while guessing your password
+      <h4 id="types-of-authentication">Types of Authentication</h4>
+    </li>
+    <li>What the user knows (ex. passwords, answers to security questions, etc.)</li>
+    <li>What you are (ex. biometric data like eye scan, palm print, thumbprint, etc.)</li>
+    <li>What you have (ex. keycards, etc.)
+      <h4 id="multi-factor-authentication">Multi-factor Authentication</h4>
+      <p>When one or more of these authentication measures are used, it is considered multi-factor authentication.</p>
+    </li>
+  </ul>
+</blockquote>
+
+<h4 id="precautions">Precautions</h4>
+<ul>
+  <li>Run Virus scans to help prevent malicious code from getting into and affecting your system.</li>
+  <li>Keeping the operating system and other software up to date can also fix errors that would allow a virus or malware to compromise a system.</li>
+</ul>
+
+<h3 id="popcorn-hack-2">POPCORN HACK 2:</h3>
+<blockquote>
+  <p>How can multi-factor authentication enhance security?</p>
+</blockquote>
+
+<h2 id="nefarious-uses-of-internet">Nefarious Uses of Internet</h2>
+<h3 id="virus-and-malware">Virus and Malware</h3>
+<h4 id="virus">Virus</h4>
+<ul>
+  <li>Viruses can allow unauthorized access by modifying the operating system to accept any user without authentication.</li>
+  <li>Virus malicious programs that can copy themselves and gain access to systems that they are not supposed to be in.
+    <h4 id="malware">Malware</h4>
+  </li>
+  <li>Malware is often intended to damage a computing system or take partial control over its operation.</li>
+  <li>Infiltrates a system by posing as legitimate programs or by attaching itself to legitimate programs, like an email attachment.</li>
+  <li>Malware is often sent in attachments to things in email. Often they request you to click on an attachment and it starts the process of adding a virus to your computer.
+    <blockquote>
+      <p>Phishing: Phishing is an attempt to trick a user into providing personal information (PII) by using social manipulation.
+Phishing emails look like they’re from a trusted source. They may appear to be an email from a bank or credit card company or a store. They could also be from a Nigerian prince or a fish who is phishing.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>They try to trick you into clicking a link and may try to scare you or lure you with the promise of something like money. The link could cause unexpected harm. They may install a virus or keylogger on your computer.
+A keylogger records keystrokes made by the user which can be used to get credentials.
+They could also turn your computer into a rogue access point or a fake wireless network which can be used to infect other computers.</p>
+
+<h2 id="factors-to-increase-security-of-system">Factors to Increase Security of System</h2>
+<p>Encryption is a good way to increase security of a system.</p>
+<ul>
+  <li><em>Passwords</em> vs. <em>keys</em>: A password is something used to login or unlock an account, while a key is used to encrypt/decrypt the data being used or transferred by that account.<br />
+<a href="https://gchq.github.io/CyberChef/">Demoing cryptography</a></li>
+  <li>Symmetric Encryption - Basic ciphers or codes</li>
+  <li>Symmetric encryption uses <strong>one</strong> key to encrypt and decrypt
+    <ul>
+      <li>Examples: Caesar Cipher, Morse Code, Rail Fence Cipher, PSK, etc.</li>
+    </ul>
+  </li>
+  <li>Asymmetric encryption is much more secure. It uses public keys to encrypt and private keys to decrypt.
+    <ul>
+      <li>Examples: RSA, Diffie-Hellman, Public Key Encryption</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="alice-and-bob">“Alice and Bob”</h3>
+
+<p>Alice wants to send an encrypted message to her friend Bob.
+With symmetric key encryption, the following process ensues:<br />
+<img src="https://www.researchgate.net/profile/Martijn-Geurden/publication/327799148/figure/fig1/AS:673332223549445@1537546320191/The-use-of-symmetric-key-encryption-between-Alice-and-Bob-Franciscus-2016.jpg" alt="Alice and Bob Symmetric" /><br /><br />
+Pretty simple, right! You know what else is simple? Trying to share the encryption/decryption key without letting anyone else know. Enter: Asymmetric Encryption<br /><br />
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Public_key_encryption_alice_to_bob.svg" alt="Bob Public" /> <img src="https://bjc.edc.org/March2019/bjc-r/img/3-lists/525px-Public_key_encryption.png" alt="Alice Public" /></p>
+
+<h3 id="popcorn-hack-3">POPCORN HACK 3:</h3>
+<blockquote>
+  <p>What are the key differences between symmetric and asymmetric encryption?</p>
+</blockquote>
+
+<h3 id="ssltls">SSL/TLS</h3>
+<p>Uses a Certificate Authority(CA) to generate a signed certificate that proves the server’s legitamacy.<br /><br />
+<img src="https://media.discordapp.net/attachments/1173345543536259183/1187287947880452126/D9xiAn1zBsCsQAAAABJRU5ErkJggg.png?ex=65965711&amp;is=6583e211&amp;hm=5098ee9dfed78caa6b926f623b6e05662c459a01bc61cebf0f3e8f8b8feb2630&amp;=&amp;format=webp&amp;quality=lossless&amp;width=1036&amp;height=671" alt="CA Diagram" /></p>
+
+<p><strong>Authentication</strong>: SSL/TLS certificates ensure the identity of the server and sometimes the client. They contain information about the entity they are issued to, including the domain name and public key.</p>
+
+<p><strong>Encryption</strong>: SSL/TLS certificates facilitate encrypted communication between the client and server. They enable the encryption of data transmitted over the internet, preventing eavesdropping and unauthorized access.</p>
+
+<p><strong>Certificate Authorities (CAs)</strong>: CAs issue SSL/TLS certificates after verifying the identity of the certificate requester. They act as trusted third parties that sign and validate the authenticity of certificates.</p>
+
+<p><strong>Public and Private Keys</strong>: SSL/TLS certificates use asymmetric encryption, involving a public key to encrypt data and a private key to decrypt it. The public key is embedded in the certificate while the corresponding private key is securely held by the server.</p>
+
+<p><strong>Handshake Protocol</strong>: When a client connects to a server, they engage in a handshake protocol to establish a secure connection. This involves agreeing on encryption algorithms, exchanging keys, and verifying the authenticity of the certificates.</p>
+
+<p><strong>Expiration and Renewal</strong>: SSL/TLS certificates have a validity period. They need to be periodically renewed to maintain secure communication. Expired certificates can disrupt services and pose security risks.</p>
+
+<p><strong>HTTPS</strong>: SSL/TLS certificates are commonly used in web browsers to enable HTTPS connections. They signal a secure connection, ensuring data integrity, confidentiality, and authenticity between the web server and the user’s browser.</p>
+<ul>
+  <li>Ex: When we used certbot to make our backend server run using HTTPS in the passion project</li>
+</ul>
+
+<p>Firewall and antivirus
+Firewall and antivirus software is a really good and easy way to protect your computer. Pretty much all computers come with this software and are enabled as a default. Just make sure to not disable it!</p>
+
+<p><img src="https://i.kym-cdn.com/entries/icons/original/000/042/184/handsomestaringeagle.jpg" /></p>
+
+<h2 id="homework">Homework</h2>
+<ol>
+  <li>Describe PII you have seen on a project in CompSci Principles.</li>
+</ol>
+
+<p>I have seen it on a login system in other projects where some people made a login where  you enter PII such as name and more.</p>
+
+<ol>
+  <li>Describe good and bad passwords? What is another step that is used to assist in authentication?</li>
+</ol>
+
+<p>GOod passwords often are more random so the hackers are unable to guess it and it should have at least 10 characters including Capitals and symbols. This way your password will not be foudn out and all your information will be safe. Bad passwords do not follow the guidlines I have listed above. Another step used to assist in authentication is biometric and physical things such as fingerprints/faceid/keycards.</p>
+
+<ol>
+  <li>
+    <p>Try to describe Symmetric and Asymmetric encryption.
+Symmetric encryption only uses 1 key for encryption and decryption while asymmetric encryption includes 2 keys each for encryption and one for edecryption.</p>
+  </li>
+  <li>
+    <p>Provide an example of encryption we used in AWS deployment.
+We used AWS Key Management Service (KMS) to help with encryption in the AWS deployment.</p>
+  </li>
+  <li>
+    <p>Create a python script that lets the user input a password that is checked by the program<br />
+<strong>BONUS</strong>: Use online wordlists to compare the password, preventing dictionary attacks</p>
+  </li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Code Here for Q5
+</span><span class="kn">import</span> <span class="nn">re</span> <span class="c1"># uses regex
+</span>
+<span class="k">def</span> <span class="nf">is_strong_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># checks if its less than 10
+</span>        <span class="k">return</span> <span class="bp">False</span>
+    
+    <span class="c1"># Check if the password contains a symbol
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s">"[!@#$%^&amp;*()_+{}\[\]:;&lt;&gt;,.?~\\/-]"</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    
+    <span class="c1"># Check if the password contains a number
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="p">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">password</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    
+    <span class="c1"># Check if the password contains both uppercase and lowercase letters
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="p">.</span><span class="n">islower</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="p">.</span><span class="n">isupper</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    
+    <span class="c1"># Check if the password avoids common patterns
+</span>    <span class="n">common_patterns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"password"</span><span class="p">,</span> <span class="s">"123456"</span><span class="p">,</span> <span class="s">"qwerty"</span><span class="p">,</span> <span class="s">"admin"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">pattern</span> <span class="ow">in</span> <span class="n">password</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">common_patterns</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    
+    <span class="k">return</span> <span class="bp">True</span>
+
+
+
+<span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter your password: "</span><span class="p">)</span>
+    
+    <span class="c1"># Check if the password is strong
+</span><span class="k">if</span> <span class="n">is_strong_password</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"This is a super duper strong password"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"This is a weak password run the program again to make it"</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/student"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/student/2023/12/21/Safe_ComputingP5_IPYNB_2_.html" hidden></a>
+</article>
+
+    </section>
+
+  </div>
+</body>
+
+
+</html>
