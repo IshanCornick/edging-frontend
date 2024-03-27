@@ -9,8 +9,8 @@ courses: { compsci: {week: 0} }
 ---
 
 <body>
-    <h1>Titanic Survival Predictor</h1>
-    <form id="titanicForm">
+    <h1>Pay</h1>
+    <form id="Pay">
         <div class="form-group">
             <label for="_title">Job Title:</label>
             <input type="text" id="_title" name="_title" class="form-control" required>
