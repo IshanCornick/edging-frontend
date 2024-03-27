@@ -23,10 +23,6 @@ courses: { compsci: {week: 0} }
             <label for="_qualification">Qualification:</label>
             <input type="text" id="_qualification" name="_qualification" class="form-control" required>
         </div>
-        <div class="form-group">
-            <label for="_pay">Pay:</label>
-            <input type="text" id="_pay" name="_pay" class="form-control" required>
-        </div>
         <button type="button" class="btn btn-primary" onclick="predictSurvival()">Predict Survival</button>
     </form>
     <div id="result"></div>
